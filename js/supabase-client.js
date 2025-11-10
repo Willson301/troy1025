@@ -1,8 +1,8 @@
 // 클라이언트 사이드 Supabase 설정
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = "YOUR_SUPABASE_URL";
-const supabaseAnonKey = "YOUR_SUPABASE_ANON_KEY";
+const supabaseUrl = "https://dzgjxhhyhwyfvwlukyqg.supabase.co";
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6Z2p4aGh5aHd5ZnZ3bHVreXFnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE0OTI4MDQsImV4cCI6MjA3NzA2ODgwNH0.KIjBEtvUsgAnWK1vRU3DyC84AVbQPwUei1GIEbLFDR8";
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
