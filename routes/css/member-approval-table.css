@@ -1,0 +1,127 @@
+/* 회원사 가입승인 테이블 스타일 */
+
+.approval-list {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 2px solid #255ffe;
+  margin-top: 32px;
+}
+
+.approval-header {
+  background: linear-gradient(135deg, #f8fafc 0, #e2e8f0 100%);
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 60px 1fr 120px 100px 120px 100px 80px 120px;
+  gap: 12px;
+  font-size: 14px;
+  color: #475569;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid #cbd5e1;
+}
+
+.approval-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px 100px 120px 100px 80px 120px;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.approval-item:hover {
+  background: #f8fafc;
+  border-left: 4px solid #255ffe;
+  transform: translateX(2px);
+}
+
+.approval-item:last-child {
+  border-bottom: none;
+}
+
+/* 상태 배지 */
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.status-badge.pending {
+  background: linear-gradient(135deg, #fef3c7 0, #fcd34d 100%);
+  color: #92400e;
+}
+
+/* 액션 버튼 */
+.action-btn {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  margin: 0 2px;
+}
+
+.action-btn.approve {
+  background: #10b981;
+  color: white;
+}
+
+.action-btn.approve:hover {
+  background: #059669;
+}
+
+.action-btn.reject {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+
+.action-btn.reject:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .approval-header,
+  .approval-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .approval-header {
+    display: none;
+  }
+
+  .approval-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: white;
+  }
+
+  .approval-item > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+  }
+
+  .approval-item > div::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #374151;
+    font-size: 12px;
+  }
+}

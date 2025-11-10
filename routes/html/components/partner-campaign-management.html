@@ -1,0 +1,180 @@
+<div class="dashboard-content-wrapper">
+  <div class="header">
+    <h1 class="page-title">파트너 대시보드</h1>
+    <p class="page-subtitle">캠페인 현황을 확인하고 결과를 분석하세요</p>
+  </div>
+
+  <!-- 통계 카드 -->
+  <div class="stats-grid">
+    <div class="stat-card" data-status="all">
+      <div class="stat-number" id="total-count">0</div>
+      <div class="stat-label">전체</div>
+    </div>
+    <div class="stat-card" data-status="scheduled">
+      <div class="stat-number" id="scheduled-count">0</div>
+      <div class="stat-label">예정</div>
+    </div>
+    <div class="stat-card" data-status="progress">
+      <div class="stat-number" id="progress-count">0</div>
+      <div class="stat-label">진행중</div>
+    </div>
+    <div class="stat-card" data-status="completed">
+      <div class="stat-number" id="completed-count">0</div>
+      <div class="stat-label">완료</div>
+    </div>
+  </div>
+
+  <!-- 검색 섹션 -->
+  <div class="search-section">
+    <div class="search-controls">
+      <input type="text" class="search-input" placeholder="캠페인 제목검색" />
+      <button class="search-btn" onclick="applySearch()">검색</button>
+      <button class="reset-btn" onclick="resetSearch()">초기화</button>
+      <button class="quick-register-btn" onclick="showQuickRegisterModal()">
+        + 간편등록하기
+      </button>
+    </div>
+    <div class="notice-box">
+      파트너사의 등록된 캠페인입니다. 진행 상황과 결과를 실시간으로 확인하실 수
+      있습니다.
+    </div>
+  </div>
+
+  <!-- 캠페인 리스트 (실데이터로 동적 렌더링) -->
+  <div class="campaign-list">
+    <div class="campaign-header">
+      <div data-label="이미지">이미지</div>
+      <div data-label="캠페인 정보">캠페인 정보</div>
+      <div data-label="리뷰플랫폼">플랫폼</div>
+      <div data-label="유형">유형</div>
+      <div data-label="상태">상태</div>
+      <div data-label="현황">현황</div>
+      <div data-label="제출/선정">제출/선정</div>
+      <div data-label="상세">상세</div>
+    </div>
+    <!-- 항목 없음: JS가 비어있을 때 빈 화면을 렌더링합니다 -->
+  </div>
+
+  <!-- 간편등록 모달 -->
+  <div id="quickRegisterModal" class="modal" style="display: none">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>간편 캠페인 등록</h2>
+        <span class="close-btn" onclick="hideQuickRegisterModal()"
+          >&times;</span
+        >
+      </div>
+      <div class="modal-body">
+        <form class="quick-register-form" onsubmit="submitQuickRegister(event)">
+          <div class="form-group">
+            <label for="productName">상품명</label>
+            <input type="text" id="productName" name="productName" required />
+          </div>
+
+          <div class="form-group">
+            <label for="productImage">제품 이미지</label>
+            <div
+              class="image-upload-area"
+              onclick="document.getElementById('productImage').click()"
+            >
+              <input
+                type="file"
+                id="productImage"
+                name="productImage"
+                accept="image/*"
+                style="display: none"
+              />
+              <div class="image-preview" id="imagePreview">
+                <div class="upload-placeholder">
+                  <span class="upload-icon">+</span>
+                  <span class="upload-text">이미지 추가하기</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="platform">플랫폼</label>
+            <select id="platform" name="platform" required>
+              <option value="">플랫폼 선택</option>
+              <option value="coupang">쿠팡</option>
+              <option value="naver">네이버 스마트스토어</option>
+              <option value="instagram">인스타그램</option>
+              <option value="blog">네이버 블로그</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="campaignType">캠페인 유형</label>
+            <select id="campaignType" name="campaignType" required>
+              <option value="">유형 선택</option>
+              <option value="review">구매평</option>
+              <option value="experience">체험단</option>
+              <option value="content">콘텐츠 제작</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="productPrice">제품 가격</label>
+            <input
+              type="number"
+              id="productPrice"
+              name="productPrice"
+              min="1000"
+              step="100"
+              required
+            />
+            <span class="input-suffix">원</span>
+          </div>
+
+          <div class="form-group">
+            <label for="recruitCount">모집인원</label>
+            <input
+              type="number"
+              id="recruitCount"
+              name="recruitCount"
+              min="1"
+              max="100"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="campaignPeriod">캠페인 기간</label>
+            <div class="date-range-input">
+              <input type="date" id="startDate" name="startDate" required />
+              <span class="date-separator">~</span>
+              <input type="date" id="endDate" name="endDate" required />
+            </div>
+          </div>
+
+          <div class="price-calculation">
+            <div class="calc-row">
+              <span>구매평 수수료 (1명당 3,000원):</span>
+              <span id="commissionCost">0원</span>
+            </div>
+            <div class="calc-row">
+              <span>제품 비용:</span>
+              <span id="productCost">0원</span>
+            </div>
+            <div class="calc-row total">
+              <span>총 예상 비용:</span>
+              <span id="totalCost">0원</span>
+            </div>
+          </div>
+
+          <div class="form-buttons">
+            <button
+              type="button"
+              class="cancel-btn"
+              onclick="hideQuickRegisterModal()"
+            >
+              취소
+            </button>
+            <button type="submit" class="submit-btn">등록하기</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

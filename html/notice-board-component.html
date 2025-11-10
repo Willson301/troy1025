@@ -1,0 +1,92 @@
+<!-- 공지사항 컴포넌트 - 모든 대시보드에서 공통 사용 -->
+<div class="dashboard-content-wrapper">
+  <div class="notice-board-component">
+    <!-- 페이지 헤더 -->
+    <div class="nb-header">
+      <h1 class="page-title">공지사항</h1>
+      <p class="page-subtitle">
+        Troy 플랫폼의 중요한 소식과 업데이트를 확인하세요
+      </p>
+    </div>
+
+    <!-- 중요 공지사항 배너 (동적으로 생성) -->
+    <div id="important-notice-container"></div>
+
+    <!-- 검색 및 필터 섹션 -->
+    <div class="search-section">
+      <div class="search-controls">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="공지사항 검색..."
+        />
+        <select id="categoryFilter" class="category-filter">
+          <option value="all">전체</option>
+          <option value="system">시스템</option>
+          <option value="service">서비스</option>
+          <option value="update">업데이트</option>
+          <option value="event">이벤트</option>
+          <option value="maintenance">점검</option>
+        </select>
+        <button class="search-btn" onclick="applyFilters()">검색</button>
+        <button class="reset-btn" onclick="resetFilters()">초기화</button>
+      </div>
+
+      <!-- 관리자 전용 버튼 (role이 admin일 때만 표시) -->
+      <div id="adminControls" class="admin-controls" style="display: none">
+        <button class="btn btn-primary" onclick="showAddNoticeModal()">
+          공지사항 등록
+        </button>
+        <button class="btn btn-secondary" onclick="showEditNoticeModal()">
+          수정
+        </button>
+        <button class="btn btn-danger" onclick="showDeleteNoticeModal()">
+          삭제
+        </button>
+      </div>
+    </div>
+
+    <!-- 공지사항 목록 화면 -->
+    <div id="notice-list-view" class="notice-list-container">
+      <div class="notice-list">
+    </div>
+
+    <!-- 페이지네이션 섹션 -->
+    <div class="pagination-section">
+      <div class="pagination">
+        <button class="page-btn" disabled>‹</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <button class="page-btn">›</button>
+      </div>
+      <div class="pagination-info">총 8개의 공지사항 (1-8 / 8)</div>
+    </div>
+    </div>
+    </div>
+
+    <!-- 공지사항 상세 화면 -->
+    <div id="notice-detail-view" class="notice-detail-container" style="display: none;">
+      <div class="notice-detail">
+        <div class="detail-header">
+          <button class="back-btn" onclick="showNoticeList()">← 목록으로</button>
+          <h1 class="detail-title" id="detail-title">공지사항 제목</h1>
+          <div class="detail-meta" id="detail-meta">
+            <span class="detail-date">2025.08.27</span>
+            <span class="detail-views">조회 1,245</span>
+          </div>
+        </div>
+        <div class="detail-content" id="detail-content">
+          공지사항 내용이 여기에 표시됩니다.
+        </div>
+        <div class="detail-tags" id="detail-tags">
+          <span class="tag system">시스템</span>
+          <span class="tag maintenance">점검</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>광고주센터 신규가입 - Troy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/troy-login.css" />
+  </head>
+  <body>
+    <div class="page register-page">
+      <section class="login register-section">
+        <div class="login-card register-card">
+          <div class="login-header">
+            <div class="wreaths-container">
+              <div class="center-content">
+                <div class="troy-with-wreaths">
+                  <img
+                    class="wreath left"
+                    src="../image/left.png"
+                    alt="left wreath"
+                  />
+                  <span class="brand">Troy</span>
+                  <img
+                    class="wreath right"
+                    src="../image/right.png"
+                    alt="right wreath"
+                  />
+                </div>
+                <div class="center">광고주센터 가입</div>
+              </div>
+            </div>
+          </div>
+          <form class="form" id="register-form">
+            <label class="label" for="bizId">사업자 등록번호</label>
+            <input
+              class="input"
+              id="bizId"
+              placeholder="110-10-11011"
+              required
+            />
+
+            <label class="label" for="username">아이디</label>
+            <input
+              class="input"
+              id="username"
+              placeholder="로그인에 사용할 아이디를 입력하세요"
+              required
+            />
+
+            <label class="label" for="company">상호명</label>
+            <input
+              class="input"
+              id="company"
+              placeholder="ex) 트로이인터내셔널"
+              required
+            />
+
+            <label class="label" for="pw">비밀번호</label>
+            <input
+              class="input"
+              id="pw"
+              type="password"
+              placeholder="6자리이상 비밀번호"
+              required
+              minlength="6"
+            />
+
+            <label class="label" for="pw2">비밀번호 확인</label>
+            <input
+              class="input"
+              id="pw2"
+              type="password"
+              placeholder="비밀번호 재입력"
+              required
+            />
+
+            <label class="label" for="name">담당자 성함</label>
+            <input class="input" id="name" placeholder="홍길동" required />
+
+            <label class="label" for="phone">전화번호</label>
+            <input
+              class="input"
+              id="phone"
+              placeholder="010-1111-2222"
+              required
+            />
+
+            <label class="label" for="email">이메일</label>
+            <input
+              class="input"
+              id="email"
+              type="email"
+              placeholder="abc@troy.co.kr"
+              required
+            />
+
+            <label class="label" for="url">제품판매URL</label>
+            <input
+              class="input"
+              id="url"
+              placeholder="https://www.coupang.com/vp/products/123456789 (쿠팡, 네이버, 오늘의집 등등)"
+            />
+
+            <label class="label" for="business-license"
+              >사업자등록증 업로드</label
+            >
+            <div class="file-upload-container">
+              <div class="file-upload-area" id="business-license-upload">
+                <div class="upload-icon">📄</div>
+                <div class="upload-text">
+                  <p class="upload-title">사업자등록증을 업로드해주세요</p>
+                  <p class="upload-subtitle">
+                    PDF, JPG, PNG 파일만 가능 (최대 10MB)
+                  </p>
+                </div>
+                <input
+                  type="file"
+                  id="business-license"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  style="display: none"
+                />
+              </div>
+              <div
+                class="file-info"
+                id="business-license-info"
+                style="display: none"
+              >
+                <div class="file-details">
+                  <span class="file-name" id="business-license-name"></span>
+                  <span class="file-size" id="business-license-size"></span>
+                </div>
+                <button
+                  type="button"
+                  class="remove-file"
+                  id="remove-business-license"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            <button class="btn" type="submit">광고주 회원가입</button>
+          </form>
+        </div>
+      </section>
+    </div>
+    <script src="../js/auth-api.js"></script>
+    <script src="../js/register.js"></script>
+  </body>
+</html>

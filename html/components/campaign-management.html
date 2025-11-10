@@ -1,0 +1,62 @@
+<div class="header">
+  <h1 class="page-title">대행사 대시보드</h1>
+  <p class="page-subtitle">
+    캠페인 현황을 한눈에 확인하고 효율적으로 관리하세요
+  </p>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card" data-status="all">
+    <div class="stat-number" id="total-count">0</div>
+    <div class="stat-label">전체</div>
+  </div>
+  <div class="stat-card" data-status="scheduled">
+    <div class="stat-number" id="scheduled-count">0</div>
+    <div class="stat-label">예정</div>
+  </div>
+  <div class="stat-card" data-status="progress">
+    <div class="stat-number" id="progress-count">0</div>
+    <div class="stat-label">진행중</div>
+  </div>
+  <div class="stat-card" data-status="completed">
+    <div class="stat-number" id="completed-count">0</div>
+    <div class="stat-label">완료</div>
+  </div>
+</div>
+
+<div class="search-section">
+  <div class="search-controls">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="캠페인 제목검색"
+      id="search-input"
+    />
+    <button class="search-btn" id="search-btn">검색</button>
+    <button class="reset-btn" id="reset-btn">초기화</button>
+  </div>
+  <div class="notice-box">
+    대행사 계정으로 관리 중인 캠페인입니다. 클라이언트 요청에 따라 수정이
+    가능합니다.
+  </div>
+</div>
+
+<div class="campaign-list">
+  <div class="campaign-header">
+    <div data-label="이미지">이미지</div>
+    <div data-label="캠페인 정보">캠페인 정보</div>
+    <div data-label="리뷰플랫폼">플랫폼</div>
+    <div data-label="유형">유형</div>
+    <div data-label="상태">상태</div>
+    <div data-label="현황">현황</div>
+    <div data-label="제출/선정">제출/선정</div>
+    <div data-label="상세">상세</div>
+  </div>
+
+  <!-- 캠페인 목록은 JavaScript로 동적 생성됩니다 -->
+</div>
+
+<div
+  class="pagination"
+  style="justify-content: center; gap: 8px; margin: 16px 0"
+></div>

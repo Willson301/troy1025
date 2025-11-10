@@ -1,0 +1,148 @@
+/* p6 레이아웃을 컴포넌트 스타일로 이식 (사이드바 제거 전제) */
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.header {
+  margin-bottom: 32px;
+  text-align: left;
+}
+.page-title {
+  font-size: 32px;
+  color: #1e293b;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+.page-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  font-weight: 500;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.stat-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 2px solid #255ffe;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  transform: translateZ(0);
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+.stat-number {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+.stat-label {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.search-section {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.04);
+  border: 2px solid #255ffe;
+}
+.search-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 16px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+}
+.search-input:focus {
+  border-color: #255ffe;
+  box-shadow: 0 0 0 3px rgba(37, 95, 254, 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+.search-btn,
+.reset-btn {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.search-btn {
+  background: linear-gradient(135deg, #255ffe 0%, #1d4ed8 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 95, 254, 0.3);
+}
+.search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 95, 254, 0.4);
+}
+.reset-btn {
+  background: #64748b;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(100, 116, 139, 0.3);
+}
+.reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(100, 116, 139, 0.4);
+}
+.notice-box {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.client-card {
+  background: #fff;
+  border: 2px solid #255ffe;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+.client-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 95, 254, 0.15);
+}
+@media (max-width: 768px) {
+  .search-controls {
+    flex-direction: column;
+  }
+}

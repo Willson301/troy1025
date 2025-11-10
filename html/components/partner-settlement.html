@@ -1,0 +1,110 @@
+<div class="main-content">
+  <div class="page-container">
+    <div class="main-content">
+      <div class="header">
+        <h1 class="page-title">파트너사 정산 관리</h1>
+        <p class="page-subtitle">
+          파트너사별 고객 구매평 건수에 따른 정산을 관리하고 월별 기준으로
+          정산하세요
+        </p>
+      </div>
+
+      <div class="stats-grid" id="partnerSettlementStats">
+        <div class="stat-card" data-status="all">
+          <div class="stat-number" id="total-partners">-</div>
+          <div class="stat-label">총 파트너</div>
+        </div>
+        <div class="stat-card" data-status="pending">
+          <div class="stat-number" id="pending-amount" style="color: #f59e0b">
+            -
+          </div>
+          <div class="stat-label">지급대기</div>
+        </div>
+        <div class="stat-card" data-status="completed">
+          <div class="stat-number" id="completed-amount" style="color: #10b981">
+            -
+          </div>
+          <div class="stat-label">지급완료</div>
+        </div>
+        <div class="stat-card" data-status="reviews">
+          <div class="stat-number" id="total-reviews" style="color: #3b82f6">
+            -
+          </div>
+          <div class="stat-label">총 구매평</div>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <select id="month-filter" class="filter-select">
+          <option value="current">이번 달</option>
+          <option value="prev1">지난 달</option>
+          <option value="prev2">지지난 달</option>
+        </select>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="파트너명 또는 고객명 검색"
+          id="search-input"
+        />
+        <button class="search-btn" id="search-btn">검색</button>
+        <button class="reset-btn" id="reset-btn">초기화</button>
+        <button class="excel-download-btn" id="excel-btn">엑셀 다운로드</button>
+      </div>
+      <div class="notice-box">
+        매월 1일 기준으로 전월 구매평 건수를 집계하여 정산합니다. 건당 300원씩
+        지급됩니다.
+      </div>
+      <div class="info-box">
+        초대코드로 가입한 회원의 서비스 이용건수를 기반해서 정산되며, 매월 1일
+        캠페인 완료를 기준으로 하여 지급되기에 진행중인 캠페인의 정산은 다음달로
+        이월됩니다.
+      </div>
+    </div>
+
+    <div class="settlement-table-container">
+      <div class="table-header">
+        <h3>파트너별 고객 정산 테이블</h3>
+        <div class="table-actions">
+          <select id="partner-filter" class="filter-select">
+            <option value="all">모든 파트너</option>
+          </select>
+          <select id="status-filter" class="filter-select">
+            <option value="all">모든 상태</option>
+            <option value="pending">지급대기</option>
+            <option value="completed">지급완료</option>
+            <option value="processing">처리중</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="partnerSettlementLoading" style="padding: 16px; color: #6b7280">
+        로딩중...
+      </div>
+      <div
+        id="partnerSettlementError"
+        style="display: none; padding: 16px; color: #dc2626"
+      >
+        데이터를 불러오지 못했습니다.
+      </div>
+
+      <div
+        class="excel-table"
+        id="partnerSettlementTable"
+        style="display: none"
+      >
+        <div class="table-row table-header-row">
+          <div>정산 월</div>
+          <div>파트너명</div>
+          <div>고객명</div>
+          <div>구매평 건수</div>
+          <div>건당 단가</div>
+          <div>정산 금액</div>
+          <div>상태</div>
+        </div>
+        <div id="partnerSettlementBody"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/components/partner-settlement.js"></script>

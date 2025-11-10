@@ -1,0 +1,187 @@
+<div class="header">
+  <h1 class="page-title">스케줄 관리</h1>
+  <p class="page-subtitle">캠페인 일정을 체계적으로 관리하고 계획하세요</p>
+</div>
+
+<div class="search-section">
+  <div class="search-controls">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="캠페인명, 클라이언트명 검색..."
+      id="searchInput"
+    />
+    <button class="search-btn" onclick="applyFilters()">검색</button>
+    <button class="reset-btn" onclick="resetFilters()">초기화</button>
+  </div>
+  <div class="notice-box">
+    스케줄 관리 시스템을 통해 캠페인 일정을 효율적으로 관리하고 계획하세요.
+  </div>
+</div>
+
+<div id="calendarView" class="view-content active">
+  <div class="campaign-list">
+    <div class="view-controls-section">
+      <div style="text-align: center; margin-bottom: 20px">
+        <h2
+          style="
+            margin: 0 0 16px 0;
+            color: #1e293b;
+            font-size: 24px;
+            font-weight: 700;
+          "
+        >
+          클라이언트 캠페인 일정 관리
+        </h2>
+      </div>
+
+      <div
+        class="view-controls"
+        style="justify-content: space-between; align-items: center"
+      >
+        <div style="display: flex; gap: 8px">
+          <button
+            class="search-btn view-btn active"
+            data-view="calendar"
+            id="calendarBtn"
+          >
+            캘린더
+          </button>
+          <button 
+            class="reset-btn view-btn" 
+            data-view="table" 
+            id="tableBtn"
+          >
+            테이블
+          </button>
+          <button
+            class="bulk-campaign-btn view-btn"
+            data-view="timeline"
+            id="timelineBtn"
+          >
+            타임라인
+          </button>
+          <button
+            class="search-btn view-btn"
+            data-view="gantt"
+            id="ganttBtn"
+          >
+            간트차트
+          </button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px">
+          <button class="search-btn" onclick="changeMonth(-1)">‹ 이전</button>
+          <h2
+            style="margin: 0; color: #1e293b; font-size: 20px"
+            id="currentMonth"
+          >
+            2025년 9월
+          </h2>
+          <button class="search-btn" onclick="changeMonth(1)">다음 ›</button>
+        </div>
+      </div>
+    </div>
+    <div id="schedule-content" style="padding: 20px"></div>
+  </div>
+</div>
+
+<!-- 일정 추가/편집 모달 -->
+<div id="scheduleModal" class="modal" style="display: none">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">새 일정 추가</h3>
+      <button class="close-btn" onclick="closeScheduleModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="scheduleForm" onsubmit="saveSchedule(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="campaignName">캠페인명 *</label>
+            <input type="text" id="campaignName" required />
+          </div>
+          <div class="form-group">
+            <label for="clientName">클라이언트 *</label>
+            <select id="clientName" required>
+              <option value="">클라이언트 선택</option>
+              <option value="abc">ABC 쇼핑몰</option>
+              <option value="beauty">뷰티 브랜드</option>
+              <option value="home">홈데코 브랜드</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="campaignType">캠페인 유형 *</label>
+            <select id="campaignType" required>
+              <option value="">유형 선택</option>
+              <option value="review">구매평</option>
+              <option value="experience">체험단</option>
+              <option value="content">콘텐츠 제작</option>
+              <option value="live">라이브</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="priority">우선순위</label>
+            <select id="priority">
+              <option value="low">낮음</option>
+              <option value="medium" selected>보통</option>
+              <option value="high">높음</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="startDate">시작일 *</label>
+            <input type="datetime-local" id="startDate" required />
+          </div>
+          <div class="form-group">
+            <label for="endDate">종료일 *</label>
+            <input type="datetime-local" id="endDate" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">설명</label>
+          <textarea
+            id="description"
+            rows="3"
+            placeholder="캠페인에 대한 상세 설명을 입력하세요"
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="budget">예산</label>
+            <input type="number" id="budget" placeholder="예산을 입력하세요" />
+          </div>
+          <div class="form-group">
+            <label for="targetCount">목표 수량</label>
+            <input
+              type="number"
+              id="targetCount"
+              placeholder="목표 수량을 입력하세요"
+            />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="closeScheduleModal()"
+          >
+            취소
+          </button>
+          <button type="submit" class="btn btn-primary">저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <script src="partner-schedule-management.js"></script> -->
+</body>
+</html>

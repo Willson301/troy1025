@@ -1,0 +1,60 @@
+<div class="header">
+  <h1 class="page-title">파트너십 현황</h1>
+  <p class="page-subtitle">
+    파트너십 클라이언트 현황을 한눈에 확인하고 효율적으로 관리하세요
+  </p>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card" data-status="all">
+    <div class="stat-number" id="total-count">0</div>
+    <div class="stat-label">거래처</div>
+  </div>
+  <div class="stat-card" data-status="scheduled">
+    <div class="stat-number" id="scheduled-count">0</div>
+    <div class="stat-label">총 캠페인</div>
+  </div>
+  <div class="stat-card" data-status="progress">
+    <div class="stat-number" id="progress-count">0</div>
+    <div class="stat-label">진행중</div>
+  </div>
+  <div class="stat-card" data-status="completed">
+    <div class="stat-number" id="completed-count">0</div>
+    <div class="stat-label">완료</div>
+  </div>
+</div>
+
+<div class="search-section">
+  <div class="search-controls">
+    <input type="text" class="search-input" placeholder="클라이언트 검색" />
+    <button class="search-btn" onclick="onSearch()">검색</button>
+    <button class="reset-btn" onclick="onReset()">초기화</button>
+    <button class="bulk-campaign-btn" onclick="goToClientManagement()">
+      초대코드 발급하기
+    </button>
+  </div>
+  <div class="notice-box">
+    파트너 계정으로 관리 중인 클라이언트입니다. 클라이언트 요청에 따라 수정이
+    가능합니다.
+  </div>
+</div>
+
+<div
+  id="main-content"
+  style="
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    justify-content: space-between;
+    max-width: 100%;
+    flex-wrap: wrap;
+  "
+>
+  <!-- 파트너십 카드들은 JavaScript로 동적 생성됩니다 -->
+</div>
+
+<!-- 페이지네이션 컨테이너 -->
+<div class="pagination"></div>
+
+<!-- 페이지 정보 -->
+<div class="page-info"></div>

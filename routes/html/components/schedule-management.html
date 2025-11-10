@@ -1,0 +1,374 @@
+<div class="main-content">
+  <div class="header">
+    <h1 class="page-title">스케줄 관리</h1>
+    <p class="page-subtitle">캠페인 완료 처리 및 정산 마감 관리</p>
+  </div>
+
+  <!-- 통계 카드 -->
+  <!-- <div class="stats-grid">
+    <div class="stat-card" data-status="all">
+      <div class="stat-number" id="total-count">45</div>
+      <div class="stat-label">전체 일정</div>
+    </div>
+    <div class="stat-card" data-status="customer">
+      <div class="stat-number" id="customer-count">28</div>
+      <div class="stat-label">고객사 일정</div>
+    </div>
+    <div class="stat-card" data-status="partner">
+      <div class="stat-number" id="partner-count">12</div>
+      <div class="stat-label">파트너사 일정</div>
+    </div>
+    <div class="stat-card" data-status="agency">
+      <div class="stat-number" id="agency-count">5</div>
+      <div class="stat-label">대행사 일정</div>
+    </div>
+  </div> -->
+
+  <!-- 필터 섹션 -->
+  <div class="filter-section">
+    <div class="filter-buttons">
+      <button
+        id="all-filter"
+        class="filter-btn"
+        onclick="showSchedule('all'); filterByRole('all');"
+      >
+        전체
+      </button>
+      <button
+        id="customer-filter"
+        class="filter-btn active"
+        onclick="showSchedule('customer'); filterByRole('client');"
+      >
+        고객사
+      </button>
+      <button
+        id="partner-filter"
+        class="filter-btn"
+        onclick="showSchedule('partner'); filterByRole('partner');"
+      >
+        파트너사
+      </button>
+      <button
+        id="agency-filter"
+        class="filter-btn"
+        onclick="showSchedule('agency'); filterByRole('agency');"
+      >
+        대행사
+      </button>
+    </div>
+  </div>
+
+  <!-- 뷰 전환 버튼 -->
+  <div class="view-controls">
+    <button
+      id="calendar-view-btn"
+      class="view-btn active"
+      onclick="switchToCalendarView()"
+    >
+      캘린더
+    </button>
+    <button
+      id="timeline-view-btn"
+      class="view-btn"
+      onclick="switchToTimelineView()"
+    >
+      타임라인
+    </button>
+    <button id="gantt-view-btn" class="view-btn" onclick="switchToGanttView()">
+      간트차트
+    </button>
+  </div>
+
+  <!-- 캘린더 영역 -->
+  <div id="calendar-section" class="calendar-section">
+    <div class="calendar-header">
+      <h3 id="calendar-title" class="calendar-title">고객사 스케줄</h3>
+      <div class="calendar-controls">
+        <button class="nav-btn" onclick="previousMonth()">← 이전</button>
+        <span class="month-year">2024년 9월</span>
+        <button class="nav-btn" onclick="nextMonth()">다음 →</button>
+      </div>
+    </div>
+
+    <!-- 캘린더 헤더 -->
+    <div class="calendar-weekdays">
+      <div class="weekday sunday">일</div>
+      <div class="weekday">월</div>
+      <div class="weekday">화</div>
+      <div class="weekday">수</div>
+      <div class="weekday">목</div>
+      <div class="weekday">금</div>
+      <div class="weekday saturday">토</div>
+    </div>
+
+    <!-- 캘린더 바디 (예시 데이터) -->
+    <div id="calendar-body" class="calendar-body">
+      <div class="calendar-day">
+        <div class="day-number sunday">1</div>
+        <div class="event customer-event">ABC 마케팅 미팅</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">2</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">3</div>
+        <div class="event customer-event">디지털플러스 검토</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">4</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">5</div>
+        <div class="event customer-event">스마트솔루션 론칭</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">6</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number saturday">7</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number sunday">8</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">9</div>
+        <div class="event customer-event">이노베이션 승인</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">10</div>
+      </div>
+      <div class="calendar-day today">
+        <div class="day-number">11</div>
+        <div class="event today-event">오늘</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">12</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">13</div>
+        <div class="event customer-event">글로벌테크 재검토</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number saturday">14</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number sunday">15</div>
+        <div class="event customer-event">퓨처마케팅 캠페인</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">16</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">17</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">18</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">19</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">20</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number saturday">21</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number sunday">22</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">23</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">24</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">25</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">26</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">27</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number saturday">28</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number sunday">29</div>
+      </div>
+      <div class="calendar-day">
+        <div class="day-number">30</div>
+      </div>
+      <div class="calendar-day empty"></div>
+      <div class="calendar-day empty"></div>
+      <div class="calendar-day empty"></div>
+      <div class="calendar-day empty"></div>
+      <div class="calendar-day empty"></div>
+    </div>
+  </div>
+
+  <!-- 타임라인 영역 -->
+  <div id="timeline-section" class="timeline-section" style="display: none">
+    <div class="timeline-header">
+      <h3 id="timeline-title" class="timeline-title">고객사 스케줄 타임라인</h3>
+      <div class="timeline-controls">
+        <button class="add-schedule-btn" onclick="showAddScheduleModal()">
+          + 일정 추가
+        </button>
+      </div>
+    </div>
+
+    <div class="timeline-container">
+      <div id="timeline-content" class="timeline-content">
+        <!-- 타임라인 아이템들이 여기에 동적으로 생성됩니다 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 간트차트 영역 -->
+  <div id="gantt-section" class="gantt-section" style="display: none">
+    <div class="gantt-header">
+      <h3 id="gantt-title" class="gantt-title">고객사 스케줄 간트차트</h3>
+      <div class="gantt-controls">
+        <button class="add-task-btn" onclick="showAddTaskModal()">
+          + 작업 추가
+        </button>
+      </div>
+    </div>
+
+    <div class="gantt-container">
+      <div class="gantt-timeline">
+        <div class="gantt-sidebar">
+          <div class="gantt-sidebar-header">작업명</div>
+          <div id="gantt-task-list" class="gantt-task-list">
+            <!-- 작업 목록이 여기에 동적으로 생성됩니다 -->
+          </div>
+        </div>
+
+        <div class="gantt-chart-area">
+          <div id="gantt-date-header" class="gantt-date-header">
+            <!-- 날짜 헤더가 여기에 동적으로 생성됩니다 -->
+          </div>
+          <div id="gantt-chart-content" class="gantt-chart-content">
+            <!-- 간트 바가 여기에 동적으로 생성됩니다 -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 작업 추가 모달 -->
+  <div id="add-task-modal" class="modal" style="display: none">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>새 작업 추가</h3>
+        <button class="close-btn" onclick="closeAddTaskModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="add-task-form">
+          <div class="form-group">
+            <label for="task-title">작업명</label>
+            <input
+              type="text"
+              id="task-title"
+              placeholder="작업명을 입력하세요"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="task-start-date">시작일</label>
+            <input type="date" id="task-start-date" required />
+          </div>
+          <div class="form-group">
+            <label for="task-end-date">종료일</label>
+            <input type="date" id="task-end-date" required />
+          </div>
+          <div class="form-group">
+            <label for="task-color">색상</label>
+            <select id="task-color" required>
+              <option value="#FAD02E">노란색</option>
+              <option value="#8BD3E6">파란색</option>
+              <option value="#FF9AA2">분홍색</option>
+              <option value="#A8E6CF">초록색</option>
+              <option value="#FFB3BA">연분홍색</option>
+              <option value="#B19CD9">보라색</option>
+              <option value="#FFD93D">금색</option>
+              <option value="#6BCF7F">민트색</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="addTask()">추가</button>
+        <button class="btn btn-secondary" onclick="closeAddTaskModal()">
+          취소
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 일정 추가 모달 -->
+  <div id="add-schedule-modal" class="modal" style="display: none">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>새 일정 추가</h3>
+        <button class="close-btn" onclick="closeAddScheduleModal()">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="add-schedule-form">
+          <div class="form-group">
+            <label for="schedule-date">날짜</label>
+            <input type="date" id="schedule-date" required />
+          </div>
+          <div class="form-group">
+            <label for="schedule-title">제목</label>
+            <input
+              type="text"
+              id="schedule-title"
+              placeholder="일정 제목을 입력하세요"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="schedule-status">상태</label>
+            <select id="schedule-status" required>
+              <option value="예정">예정</option>
+              <option value="진행중">진행중</option>
+              <option value="완료">완료</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="addSchedule()">추가</button>
+        <button class="btn btn-secondary" onclick="closeAddScheduleModal()">
+          취소
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 캠페인 상세보기 영역 -->
+  <div
+    id="campaign-detail-section"
+    class="campaign-detail-section"
+    style="display: none"
+  >
+    <div class="detail-header">
+      <h3 id="detail-title" class="detail-title">캠페인 상세정보</h3>
+      <button
+        id="close-detail-btn"
+        class="close-detail-btn"
+        onclick="closeCampaignDetail()"
+      >
+        ×
+      </button>
+    </div>
+    <div id="campaign-detail-content" class="campaign-detail-content">
+      <!-- 상세 정보가 여기에 동적으로 로드됩니다 -->
+    </div>
+  </div>
+</div>

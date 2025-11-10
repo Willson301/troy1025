@@ -1,0 +1,172 @@
+.screen {
+  display: flex;
+  width: 960px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px 24px 48px 48px;
+  position: relative;
+  background-color: #f1e5ea;
+  border-radius: 16px;
+  border: 1px solid;
+  border-color: #00000033;
+}
+
+.screen .frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 24px 0px 0px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.screen .div {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 136px;
+}
+
+.screen .element {
+  position: absolute;
+  top: 5px;
+  left: calc(50% - 102px);
+  width: 204px;
+  height: 131px;
+}
+
+.screen .title {
+  display: flex;
+  width: 185px;
+  align-items: center;
+  justify-content: space-around;
+  gap: 5.76px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 71px;
+  left: 272px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px #00000026;
+}
+
+.screen .element-2 {
+  display: flex;
+  align-items: center;
+  gap: 2.88px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.screen .frame-2 {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.screen .star {
+  position: relative;
+  width: 17.6px;
+  height: 16.81px;
+  aspect-ratio: 1;
+}
+
+.screen .text {
+  width: fit-content;
+  margin-top: -0.72px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-weight: 400;
+  font-size: 17.3px;
+  text-align: right;
+  letter-spacing: -0.52px;
+  line-height: 20.7px;
+  white-space: nowrap;
+  position: relative;
+  color: #000000;
+}
+
+.screen .frame-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.screen .frame-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.screen .text-wrapper {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: "Gmarket Sans-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 28px;
+  letter-spacing: -1.4px;
+  line-height: 36.1px;
+}
+
+.screen .text-wrapper-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  height: 52px;
+  font-family: "Gmarket Sans-Medium", Helvetica;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: 25.8px;
+  position: relative;
+  color: #000000;
+}
+
+.screen .p {
+  position: relative;
+  align-self: stretch;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+  line-height: 23.9px;
+}
+
+.screen .group-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: #000000;
+  border-radius: 12px;
+}
+
+.screen .group {
+  position: relative;
+  top: 8px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+}
+
+.screen .vector {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+}

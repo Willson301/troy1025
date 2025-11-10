@@ -1,0 +1,173 @@
+<!-- 캠페인 진행률 추적 컴포넌트 -->
+<div class="campaign-progress-tracker">
+  <div class="progress-header">
+    <h3>캠페인 진행률 관리</h3>
+    <div class="progress-actions">
+      <button class="btn btn-primary" onclick="showProgressUpdateModal()">
+        <i class="fas fa-plus"></i> 진행률 업데이트
+      </button>
+      <button class="btn btn-secondary" onclick="refreshProgress()">
+        <i class="fas fa-sync-alt"></i> 새로고침
+      </button>
+    </div>
+  </div>
+
+  <!-- 진행률 필터 -->
+  <div class="progress-filters">
+    <div class="filter-group">
+      <label>캠페인 선택:</label>
+      <select id="campaignFilter" onchange="filterProgress()">
+        <option value="all">전체 캠페인</option>
+        <!-- 캠페인 목록이 여기에 동적으로 로드됩니다 -->
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>진행률 범위:</label>
+      <select id="progressRangeFilter" onchange="filterProgress()">
+        <option value="all">전체</option>
+        <option value="0-25">0-25%</option>
+        <option value="26-50">26-50%</option>
+        <option value="51-75">51-75%</option>
+        <option value="76-100">76-100%</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 진행률 통계 -->
+  <div class="progress-stats">
+    <div class="stat-card">
+      <div class="stat-icon active">
+        <i class="fas fa-play"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number" id="activeCampaigns">0</div>
+        <div class="stat-label">진행중 캠페인</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon average">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number" id="averageProgress">0%</div>
+        <div class="stat-label">평균 진행률</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon completed">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number" id="completedCampaigns">0</div>
+        <div class="stat-label">완료된 캠페인</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 진행률 목록 -->
+  <div class="progress-list">
+    <div class="progress-list-header">
+      <div class="header-cell">캠페인</div>
+      <div class="header-cell">진행률</div>
+      <div class="header-cell">업데이트일</div>
+      <div class="header-cell">상세</div>
+    </div>
+    <div class="progress-list-body" id="progressListBody">
+      <!-- 진행률 목록이 여기에 동적으로 로드됩니다 -->
+    </div>
+  </div>
+
+  <!-- 페이지네이션 -->
+  <div class="progress-pagination" id="progressPagination">
+    <!-- 페이지네이션이 여기에 동적으로 로드됩니다 -->
+  </div>
+</div>
+
+<!-- 진행률 업데이트 모달 -->
+<div class="modal" id="progressUpdateModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>진행률 업데이트</h3>
+      <button class="close-btn" onclick="closeProgressUpdateModal()">
+        &times;
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="progress-form">
+        <div class="form-group">
+          <label>캠페인 선택:</label>
+          <select id="selectedCampaign" required>
+            <option value="">캠페인을 선택하세요</option>
+            <!-- 캠페인 목록이 여기에 동적으로 로드됩니다 -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label>진행률 (%):</label>
+          <input
+            type="number"
+            id="progressPercentage"
+            min="0"
+            max="100"
+            value="0"
+            required
+          />
+          <div class="progress-slider">
+            <input
+              type="range"
+              id="progressSlider"
+              min="0"
+              max="100"
+              value="0"
+              oninput="updateProgressFromSlider()"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>상태 메시지:</label>
+          <textarea
+            id="statusMessage"
+            placeholder="진행 상황을 설명해주세요..."
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label>다음 단계 예정일:</label>
+          <input type="date" id="nextMilestoneDate" />
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="saveProgressUpdate()">
+        <i class="fas fa-save"></i> 업데이트 저장
+      </button>
+      <button class="btn btn-secondary" onclick="closeProgressUpdateModal()">
+        취소
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 진행률 상세보기 모달 -->
+<div class="modal" id="progressDetailModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>진행률 상세정보</h3>
+      <button class="close-btn" onclick="closeProgressDetailModal()">
+        &times;
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="progress-detail" id="progressDetailContent">
+        <!-- 진행률 상세 정보가 여기에 표시됩니다 -->
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="editProgress()">
+        <i class="fas fa-edit"></i> 수정
+      </button>
+      <button class="btn btn-secondary" onclick="closeProgressDetailModal()">
+        닫기
+      </button>
+    </div>
+  </div>
+</div>

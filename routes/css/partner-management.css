@@ -1,0 +1,370 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+.main-content {
+  padding: 24px;
+  max-width: 100%;
+  margin: 0;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 16px;
+  color: #64748b;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #10b981;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.search-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+}
+
+.search-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.search-btn,
+.reset-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-btn {
+  background: #10b981;
+  color: white;
+}
+
+.search-btn:hover {
+  background: #059669;
+}
+
+.reset-btn {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.reset-btn:hover {
+  background: #e2e8f0;
+}
+
+.notice-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 14px;
+  color: #166534;
+}
+
+.content-area {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+}
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.partner-card {
+  background: white;
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.partner-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-content {
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.partner-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.partner-id {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.status-badge {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.status-active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.partner-info {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.revenue-section {
+  margin-bottom: 16px;
+}
+
+.revenue-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.revenue-label {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.revenue-amount {
+  font-size: 11px;
+  color: #10b981;
+  font-weight: 700;
+}
+
+.revenue-amount.pending {
+  color: #f59e0b;
+}
+
+.progress-bar {
+  background: #f1f5f9;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.pending {
+  background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.detail-btn,
+.settlement-btn,
+.approve-btn,
+.reject-btn {
+  flex: 1;
+  padding: 8px 4px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detail-btn {
+  background: #f8fafc;
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+
+.detail-btn:hover {
+  background: #10b981;
+  color: white;
+}
+
+.settlement-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  color: white;
+}
+
+.settlement-btn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.approve-btn {
+  background: #f8fafc;
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+
+.approve-btn:hover {
+  background: #10b981;
+  color: white;
+}
+
+.reject-btn {
+  background: #f8fafc;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
+.reject-btn:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* 대시보드 내에서의 스타일 조정 */
+.dashboard-container #main-content-container .main-content {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  min-height: auto !important;
+}
+
+.dashboard-container #main-content-container .main-content .header {
+  margin-bottom: 24px;
+}
+
+.dashboard-container #main-content-container .main-content .stats-grid {
+  margin-bottom: 24px;
+}
+
+.dashboard-container #main-content-container .main-content .search-section {
+  margin-bottom: 20px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .search-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+}

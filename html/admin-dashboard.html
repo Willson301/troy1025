@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>광고주센터 대시보드 - Troy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/admin-dashboard.css" />
+    <!-- 공통 대시보드 스타일 -->
+    <link rel="stylesheet" href="../css/dashboard-common.css" />
+    <link rel="stylesheet" href="../css/notice-board-component.css" />
+    <link rel="stylesheet" href="../css/service-info-component.css" />
+    <link rel="stylesheet" href="../css/partner-code-issuer.css" />
+    <link rel="stylesheet" href="../css/notification-center.css" />
+    <link rel="stylesheet" href="../css/payment-management.css" />
+    <link rel="stylesheet" href="../css/campaign-progress-tracker.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- 사이드바 -->
+      <div class="sidebar">
+        <div class="logo-section">
+          <div class="logo" onclick="goToHome()" style="cursor: pointer">
+            TROY
+          </div>
+          <div class="company-name">트로이 인터내셔널</div>
+        </div>
+
+        
+        <div class="user-info">
+          <div class="user-name">관리자</div>
+          <div class="user-role">관리자</div>
+        </div>
+
+       
+
+        <div class="admin-menu-section">
+          <div class="menu-item" onclick="loadNotificationCenter()">알림 센터</div>
+          <div class="menu-item" onclick="loadNoticeBoard()">공지사항 관리</div>
+          <div class="menu-item" data-menu="service-intro" onclick="loadServiceInfo()">서비스 소개 관리</div>
+          <div class="menu-item" onclick="loadPartnerCodeIssuer()">파트너사 코드 발급</div>
+        </div>
+
+        <div class="admin-menu-section">
+          <div class="menu-title">고객지원</div>
+          <div class="menu-item" onclick="loadSupportBoard()">1:1문의 처리</div>
+          <div class="menu-item" onclick="loadCampaignApproval()">캠페인 관리</div>
+          <div class="menu-item" onclick="loadPaymentManagement()">결제 관리</div>
+          <div class="menu-item" onclick="loadCampaignProgressTracker()">진행률 추적</div>
+          <div class="menu-item" onclick="loadCompletionManagement()">완료마감</div>
+        </div>
+
+        <div class="admin-menu-section">
+          <div class="menu-title">관리자 옵션</div>
+          <div class="menu-item" onclick="loadScheduleManagement()">스케줄 관리</div>
+          <div class="menu-item" onclick="loadMemberApproval()">회원사 가입승인</div>
+          <div class="menu-item" onclick="loadPartnerManagement()">파트너사 관리</div>
+          <div class="menu-item" onclick="loadAgencyManagement()">대행사 관리</div>
+          <div class="menu-item" onclick="loadCustomerManagement()">고객사 관리</div>
+        </div>
+
+        <div class="admin-menu-section">
+          <div class="menu-title">정산 관리</div>
+          <div class="menu-item" onclick="loadPartnerSettlement()">파트너사 정산</div>
+          <div class="logout" onclick="window.location.href='/'">로그아웃</div>
+        </div>
+      </div>
+
+      <div class="main-content" id="main-content-container">
+        
+      </div>
+      
+        
+
+    <script src="../js/admin-dashboard.js"></script>
+    <!-- 공통 대시보드 스크립트 -->
+    <script src="../js/dashboard-common.js"></script>
+    <script src="../js/notification-center.js"></script>
+    <script src="../js/payment-management.js"></script>
+    <script src="../js/campaign-code-generator.js"></script>
+    <script src="../js/campaign-progress-tracker.js"></script>
+    <script src="../js/admin-dashboard.js"></script>
+    <script>
+      // 즉시 실행
+      if (typeof ensureRoleSessionToken === "function") ensureRoleSessionToken();
+      if (typeof updateSidebarNameFromProfile === "function") updateSidebarNameFromProfile();
+      
+      // DOM 로드 후에도 실행 (안전장치)
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof ensureRoleSessionToken === "function")
+          ensureRoleSessionToken();
+        if (typeof updateSidebarNameFromProfile === "function")
+          updateSidebarNameFromProfile();
+        
+        // 관리자 페이지 로드 시 기본적으로 캠페인 관리 화면 표시
+        setTimeout(() => {
+          if (typeof loadCampaignApproval === "function") {
+            console.log("관리자 대시보드 초기 로드: 캠페인 관리 화면으로 이동");
+            loadCampaignApproval();
+          }
+        }, 500); // 다른 초기화가 완료된 후 실행
+      });
+    </script>
+  </body>
+</html>

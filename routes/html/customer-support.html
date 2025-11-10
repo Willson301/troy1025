@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1:1 문의 - Troy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/agency-dashboard.css" />
+    <link rel="stylesheet" href="../css/customer-support.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- 사이드바 -->
+      <div class="sidebar">
+        <div class="logo-section">
+          <div class="logo" onclick="goToHome()" style="cursor: pointer">
+            TROY
+          </div>
+          <div class="company-name">트로이 인터내셔널</div>
+        </div>
+
+        <div class="user-info">
+          <div class="user-name">대행사님</div>
+          <div class="user-role">대행사</div>
+        </div>
+
+        <div class="mini-deposit">
+          <div class="mini-deposit-amount">25</div>
+          <div class="mini-deposit-label">예치금잔액</div>
+          <button class="mini-deposit-btn">충전</button>
+        </div>
+
+        <button class="new-campaign-btn" onclick="openCampaignCreateModal()">
+          <strong>캠페인 생성</strong>
+          <div id="container-stars">
+            <div id="stars"></div>
+          </div>
+          <div id="glow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+        </button>
+
+        <div class="menu-section">
+          <div
+            class="menu-item"
+            onclick="window.location.href='notice-board.html'"
+          >
+            공지사항
+          </div>
+          <div class="menu-item" onclick="showServiceInfo()">서비스 소개</div>
+        </div>
+
+        <div class="menu-section">
+          <div class="menu-title">대행사 관리</div>
+          <div
+            class="menu-item"
+            onclick="window.location.href='agency-dashboard.html'"
+          >
+            캠페인 관리
+          </div>
+          <div
+            class="menu-item"
+            onclick="window.location.href='client-management-integrated.html'"
+          >
+            클라이언트 관리
+          </div>
+          <div
+            class="menu-item"
+            onclick="window.location.href='schedule-management.html'"
+          >
+            스케줄 관리
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <div class="menu-title">고객지원</div>
+          <div class="menu-item active">1:1 문의</div>
+        </div>
+
+        <div class="menu-section">
+          <div class="menu-title">계정관리</div>
+          <div
+            class="menu-item"
+            onclick="window.location.href='payment-history.html'"
+          >
+            결제내역
+          </div>
+          <div class="menu-item" onclick="window.location.href='my-info.html'">
+            나의 정보
+          </div>
+        </div>
+
+        <div
+          class="logout"
+          onclick="window.location.href='/'"
+          style="cursor: pointer"
+        >
+          로그아웃
+        </div>
+      </div>
+
+      <!-- 메인 콘텐츠 -->
+      <div class="main-content">
+        <div class="header">
+          <h1 class="page-title">1:1 문의</h1>
+          <p class="page-subtitle">
+            궁금한 점이 있으시면 언제든지 문의해 주세요
+          </p>
+        </div>
+
+        <!-- 문의 유형 선택 -->
+        <div class="search-section">
+          <div class="inquiry-type-selector">
+            <h3 style="margin-bottom: 20px; color: #1e293b">
+              문의 유형을 선택해주세요
+            </h3>
+            <div class="inquiry-types">
+              <button
+                class="inquiry-type-btn active"
+                data-type="general"
+                onclick="selectInquiryType('general')"
+              >
+                <div class="type-icon">💬</div>
+                <div class="type-title">일반 문의</div>
+                <div class="type-desc">서비스 이용, 계정 관련 문의</div>
+              </button>
+              <button
+                class="inquiry-type-btn"
+                data-type="technical"
+                onclick="selectInquiryType('technical')"
+              >
+                <div class="type-icon">🔧</div>
+                <div class="type-title">기술 문의</div>
+                <div class="type-desc">시스템 오류, 기능 관련 문의</div>
+              </button>
+              <button
+                class="inquiry-type-btn"
+                data-type="campaign"
+                onclick="selectInquiryType('campaign')"
+              >
+                <div class="type-icon">📊</div>
+                <div class="type-title">캠페인 문의</div>
+                <div class="type-desc">캠페인 진행, 결과 관련 문의</div>
+              </button>
+              <button
+                class="inquiry-type-btn"
+                data-type="billing"
+                onclick="selectInquiryType('billing')"
+              >
+                <div class="type-icon">💳</div>
+                <div class="type-title">결제 문의</div>
+                <div class="type-desc">예치금, 결제 관련 문의</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 문의 폼 -->
+        <div class="search-section">
+          <form id="inquiryForm" onsubmit="submitInquiry(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="inquiryType">문의 유형 *</label>
+                <select id="inquiryType" required>
+                  <option value="">문의 유형을 선택하세요</option>
+                  <option value="general">일반 문의</option>
+                  <option value="technical">기술 문의</option>
+                  <option value="campaign">캠페인 문의</option>
+                  <option value="billing">결제 문의</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="priority">우선순위</label>
+                <select id="priority">
+                  <option value="normal">보통</option>
+                  <option value="high">높음</option>
+                  <option value="urgent">긴급</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientName">업체명 *</label>
+                <input
+                  type="text"
+                  id="clientName"
+                  required
+                  placeholder="업체명을 입력하세요"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contactName">담당자명 *</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  required
+                  placeholder="담당자명을 입력하세요"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">이메일 *</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="답변받을 이메일을 입력하세요"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">연락처</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="연락처를 입력하세요 (선택사항)"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">제목 *</label>
+              <input
+                type="text"
+                id="subject"
+                required
+                placeholder="문의 제목을 입력하세요"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">문의 내용 *</label>
+              <textarea
+                id="message"
+                rows="8"
+                required
+                placeholder="문의 내용을 자세히 입력해 주세요.&#10;&#10;예시:&#10;- 발생한 문제 상황&#10;- 재현 방법&#10;- 기대하는 결과"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="attachments">첨부파일</label>
+              <div
+                class="file-upload-area"
+                onclick="document.getElementById('fileInput').click()"
+              >
+                <input
+                  type="file"
+                  id="fileInput"
+                  multiple
+                  accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+                  style="display: none"
+                />
+                <div class="upload-content">
+                  <div class="upload-icon">📎</div>
+                  <div class="upload-text">
+                    파일을 드래그하거나 클릭하여 업로드
+                  </div>
+                  <div class="upload-desc">
+                    JPG, PNG, PDF, DOC 파일만 업로드 가능 (최대 10MB)
+                  </div>
+                </div>
+              </div>
+              <div id="fileList" class="file-list"></div>
+            </div>
+
+            <div class="form-actions">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="resetForm()"
+              >
+                초기화
+              </button>
+              <button type="submit" class="btn btn-primary">문의하기</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- 문의 내역 -->
+        <div class="search-section">
+          <h3 style="margin-bottom: 20px; color: #1e293b">나의 문의 내역</h3>
+          <div class="inquiry-history">
+            <div class="inquiry-item">
+              <div class="inquiry-header">
+                <div class="inquiry-info">
+                  <h4>캠페인 진행률이 업데이트되지 않습니다</h4>
+                  <div class="inquiry-meta">
+                    <span class="inquiry-type">기술 문의</span>
+                    <span class="inquiry-date">2025-09-08 14:30</span>
+                    <span class="inquiry-status completed">답변완료</span>
+                  </div>
+                </div>
+              </div>
+              <div class="inquiry-content">
+                <p>
+                  쿠팡 구매평 캠페인이 진행 중인데 진행률이 3일째 업데이트되지
+                  않고 있습니다. 확인 부탁드립니다.
+                </p>
+              </div>
+              <div class="inquiry-actions">
+                <button class="action-btn" onclick="viewInquiryDetail(1)">
+                  상세보기
+                </button>
+              </div>
+            </div>
+
+            <div class="inquiry-item">
+              <div class="inquiry-header">
+                <div class="inquiry-info">
+                  <h4>예치금 충전 문의</h4>
+                  <div class="inquiry-meta">
+                    <span class="inquiry-type">결제 문의</span>
+                    <span class="inquiry-date">2025-09-07 16:45</span>
+                    <span class="inquiry-status progress">답변대기</span>
+                  </div>
+                </div>
+              </div>
+              <div class="inquiry-content">
+                <p>
+                  예치금을 충전했는데 아직 반영되지 않았습니다. 언제쯤
+                  반영될까요?
+                </p>
+              </div>
+              <div class="inquiry-actions">
+                <button class="action-btn" onclick="viewInquiryDetail(2)">
+                  상세보기
+                </button>
+              </div>
+            </div>
+
+            <div class="inquiry-item">
+              <div class="inquiry-header">
+                <div class="inquiry-info">
+                  <h4>새로운 캠페인 유형 추가 요청</h4>
+                  <div class="inquiry-meta">
+                    <span class="inquiry-type">일반 문의</span>
+                    <span class="inquiry-date">2025-09-06 11:20</span>
+                    <span class="inquiry-status completed">답변완료</span>
+                  </div>
+                </div>
+              </div>
+              <div class="inquiry-content">
+                <p>네이버 쇼핑 리뷰 캠페인도 추가해주실 수 있나요?</p>
+              </div>
+              <div class="inquiry-actions">
+                <button class="action-btn" onclick="viewInquiryDetail(3)">
+                  상세보기
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 채팅 상담 버튼
+    <div class="chat-button">
+        <div class="chat-icon">💬</div>
+        <div class="chat-text">채팅 상담</div>
+    </div> -->
+
+    <script src="../js/customer-support.js"></script>
+  </body>
+</html>

@@ -1,0 +1,530 @@
+/* 캠페인 진행률 추적 컴포넌트 스타일 */
+.campaign-progress-tracker {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: clamp(20px, 4vw, 32px);
+  margin-bottom: 24px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.progress-header h3 {
+  margin: 0;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.progress-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.progress-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.filter-group select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+  justify-items: center;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  font-size: 20px;
+}
+
+.stat-icon.active {
+  background: #dbeafe;
+  color: #3b82f6;
+}
+
+.stat-icon.average {
+  background: #e0e7ff;
+  color: #7c3aed;
+}
+
+.stat-icon.completed {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.progress-list {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-list-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 600;
+  color: #374151;
+}
+
+.header-cell {
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.progress-list-body {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.progress-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.progress-item:hover {
+  background: #f8fafc;
+}
+
+.progress-item:last-child {
+  border-bottom: none;
+}
+
+.progress-cell {
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.campaign-info {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.campaign-title {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.campaign-code {
+  font-size: 12px;
+  color: #6b7280;
+  font-family: "Courier New", monospace;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background: #f3f4f6;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar.low {
+  background: #f59e0b;
+}
+
+.progress-bar.medium {
+  background: #3b82f6;
+}
+
+.progress-bar.high {
+  background: #10b981;
+}
+
+.progress-percentage {
+  font-weight: 600;
+  color: #1f2937;
+  margin-left: 8px;
+}
+
+.status-message {
+  text-align: left;
+  justify-content: flex-start;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.progress-actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-progress {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-detail {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-detail:hover {
+  background: #2563eb;
+}
+
+.btn-edit {
+  background: #10b981;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #059669;
+}
+
+.progress-pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 진행률 업데이트 모달 */
+#progressUpdateModal .modal-content {
+  max-width: 600px;
+  width: 95%;
+}
+
+.progress-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.progress-slider {
+  margin-top: 8px;
+}
+
+.progress-slider input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #e5e7eb;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.progress-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+}
+
+.progress-slider input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: none;
+}
+
+/* 진행률 상세보기 모달 */
+#progressDetailModal .modal-content {
+  max-width: 700px;
+  width: 95%;
+}
+
+.progress-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.detail-value {
+  color: #1f2937;
+}
+
+.progress-timeline {
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.timeline-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 14px;
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-message {
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.timeline-date {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .progress-list-header,
+  .progress-item {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  .header-cell:nth-child(3),
+  .progress-cell:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .progress-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .progress-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-stats {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  .progress-list-header,
+  .progress-item {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .header-cell:nth-child(n + 3),
+  .progress-cell:nth-child(n + 3) {
+    display: none;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .campaign-progress-tracker {
+    padding: 16px;
+  }
+
+  .progress-stats {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
+  .progress-list-header,
+  .progress-item {
+    grid-template-columns: 1fr;
+  }
+
+  .header-cell,
+  .progress-cell {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .progress-actions-cell {
+    justify-content: flex-start;
+  }
+}
+
+/* 캠페인 코드 컨테이너 스타일 */
+.campaign-code-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.campaign-code {
+  font-family: monospace;
+  font-size: 12px;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 사용자 유형 배지 스타일 */
+.user-type-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.user-type-badge.agency {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.user-type-badge.customer {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.user-type-badge.partner {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* 상세보기 모달에서 사용자 유형 배지 */
+.progress-detail .user-type-badge {
+  font-size: 12px;
+  padding: 4px 8px;
+}

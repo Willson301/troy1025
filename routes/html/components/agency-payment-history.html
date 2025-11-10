@@ -1,0 +1,70 @@
+<div class="header">
+  <h1 class="page-title">결제내역</h1>
+  <p class="page-subtitle">캠페인 결제 내역을 확인하세요</p>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-number" id="total-payments">₩0</div>
+    <div class="stat-label">총 결제금액</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number" id="total-campaigns">0</div>
+    <div class="stat-label">총 캠페인</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number" id="this-month">₩0</div>
+    <div class="stat-label">이번 달 결제</div>
+  </div>
+</div>
+
+<div class="search-section">
+  <div class="search-controls">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="캠페인명, 클라이언트명 검색..."
+      id="searchInput"
+    />
+    <select class="search-input" id="serviceFilter" style="min-width: 150px">
+      <option value="all">전체 서비스</option>
+      <option value="review">쿠팡구매평</option>
+      <option value="photo">포토구매평</option>
+      <option value="experience">체험단</option>
+      <option value="content">콘텐츠제작</option>
+    </select>
+    <select class="search-input" id="statusFilter" style="min-width: 120px">
+      <option value="all">전체 상태</option>
+      <option value="completed">완료</option>
+      <option value="progress">진행중</option>
+      <option value="cancelled">취소</option>
+    </select>
+    <button class="search-btn" onclick="applyFilters()">검색</button>
+    <button class="reset-btn" onclick="resetFilters()">초기화</button>
+    <button class="bulk-campaign-btn" onclick="exportPayments()">
+      내보내기
+    </button>
+  </div>
+  <div class="notice-box">
+    결제내역은 실시간으로 업데이트되며, 모든 거래는 안전하게 처리됩니다.
+  </div>
+</div>
+
+<div class="campaign-list">
+  <div class="campaign-header">
+    <div>결제일</div>
+    <div>캠페인 정보</div>
+    <div>클라이언트</div>
+    <div>서비스</div>
+    <div>수량</div>
+    <div>단가</div>
+    <div>결제금액</div>
+    <div>상태</div>
+  </div>
+</div>
+
+<!-- 페이지네이션 컨테이너 -->
+<div class="pagination"></div>
+
+<!-- 페이지 정보 -->
+<div class="page-info"></div>

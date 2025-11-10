@@ -1,0 +1,52 @@
+.main-content {
+  padding: 24px;
+  max-width: 100%;
+  margin: 0;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* 대시보드 내에서의 스타일 조정 */
+.dashboard-container #main-content-container .main-content {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  min-height: auto !important;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+  }
+
+  .main-content div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .main-content
+    div[style*="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; font-size: 12px;"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .main-content
+    div[style*="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; font-size: 12px;"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .main-content
+    div[style*="display: flex; justify-content: space-between; align-items: center"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+}

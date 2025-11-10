@@ -1,0 +1,255 @@
+<div class="dashboard-content-wrapper">
+  <div class="header">
+    <h1 class="page-title">고객 대시보드</h1>
+    <p class="page-subtitle">캠페인 현황을 확인하고 결과를 분석하세요</p>
+  </div>
+
+  <!-- 통계 카드는 실데이터 연동 시 표시됩니다 -->
+
+  <!-- 검색 섹션 -->
+  <div class="search-section">
+    <div class="search-controls">
+      <input type="text" class="search-input" placeholder="캠페인 제목검색" />
+      <button class="custom-btn btn-2" onclick="applySearch()">검색</button>
+      <button class="custom-btn btn-reset" onclick="resetSearch()">
+        초기화
+      </button>
+    </div>
+    <div class="notice-box">
+      고객사의 등록된 캠페인입니다. 진행 상황과 결과를 실시간으로 확인하실 수
+      있습니다.
+    </div>
+  </div>
+
+  <!-- 캠페인 리스트 (실데이터로 동적 렌더링) -->
+  <div class="campaign-list">
+    <div class="campaign-header">
+      <div>이미지</div>
+      <div>캠페인 정보</div>
+      <div>상태</div>
+      <div>현황</div>
+      <div>일정</div>
+      <div>상세</div>
+    </div>
+    <!-- 항목 없음: JS가 비어있을 때 빈 화면을 렌더링합니다 -->
+  </div>
+
+  <!-- 캠페인 상세보기 모달 -->
+  <div id="campaignDetailModal" class="modal" style="display: none">
+    <div class="modal-content large">
+      <div class="modal-header">
+        <h2>캠페인 상세정보</h2>
+        <span class="close-btn" onclick="hideCampaignDetail()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="detail-section">
+          <h3>
+            캠페인 기본정보
+            <span class="campaign-status-point">
+              <span class="status-indicator"></span>
+              활성
+            </span>
+          </h3>
+          <div class="campaign-info-container">
+            <div class="campaign-basic-info">
+              <div class="info-row">
+                <label>캠페인명:</label>
+                <span id="detailCampaignName">-</span>
+              </div>
+              <div class="info-row">
+                <label>캠페인 예산:</label>
+                <div class="budget-breakdown">
+                  <div id="budgetProductCost">제품비 -</div>
+                  <div id="budgetCampaignCost">캠페인비 -</div>
+                  <div id="budgetPhotoCost">사진비 -</div>
+                  <div id="budgetSlotCost">슬롯비 -</div>
+                  <div class="budget-total" id="budgetTotal">합계: -</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="schedule-calendar-mini">
+              <div class="calendar-title">캠페인 일정</div>
+              <div class="calendar-month"></div>
+              <div class="mini-calendar">
+                <div class="weekdays">
+                  <span>일</span><span>월</span><span>화</span><span>수</span
+                  ><span>목</span><span>금</span><span>토</span>
+                </div>
+                <div class="days"></div>
+              </div>
+              <div class="schedule-info">
+                <span class="info-item"
+                  ><span class="dot start"></span> 시작:
+                  <span id="scheduleStart">-</span></span
+                >
+                <span class="info-item"
+                  ><span class="dot end"></span> 종료:
+                  <span id="scheduleEnd">-</span></span
+                >
+              </div>
+              <div class="campaign-progress-mini">
+                <span class="progress-label">진행현황</span>
+                <span id="detailCampaignProgress" class="campaign-progress"
+                  >-</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <h3>요청사항</h3>
+          <div class="request-section">
+            <div class="form-group">
+              <label for="campaignRequest">캠페인 요청사항:</label>
+              <textarea
+                id="campaignRequest"
+                rows="4"
+                placeholder="캠페인 진행 시 특별히 요청하고 싶은 사항이 있다면 입력해주세요..."
+                class="request-textarea"
+              ></textarea>
+            </div>
+            <div class="request-actions">
+              <button
+                class="action-btn primary"
+                onclick="saveCampaignRequest()"
+              >
+                요청사항 저장
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <h3>원고 관리</h3>
+          <div class="manuscript-guide">
+            * 실유저를 기반으로 구매작업을 선행합니다. 구매작업이 시작되고나서
+            최소 <span class="highlight-deadline">3일</span> 안에는 원고를
+            업로드<br />
+            해주셔야만 순차적으로 리뷰가 작성되며, 원고가 작성되지않을시에는
+            캠페인 지연될 수 있으므로 이점 양지 부탁드립니다.
+          </div>
+          <div class="manuscript-section">
+            <div class="manuscript-actions">
+              <button
+                class="action-btn primary"
+                onclick="downloadManuscriptGuide()"
+              >
+                📄 원고가이드 다운로드
+              </button>
+            </div>
+            <div class="manuscript-email-notice">
+              <div class="email-notice-header">
+                <span class="email-icon">📧</span>
+                <span class="email-title">원고 제출 안내</span>
+              </div>
+              <div class="email-notice-content">
+                <p>원고는 파일 업로드 대신, 아래 이메일 주소로 전달해주세요.</p>
+                <div class="email-address-container">
+                  <span class="email-address" onclick="copyEmailAddress()"
+                    >twin8style@naver.com</span
+                  >
+                  <button class="copy-btn" onclick="copyEmailAddress()">
+                    복사하기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <h3>제품 반송 주소</h3>
+          <div class="address-notice">
+            * 쿠팡 리뷰캠페인을 진행하실경우 캠페인 종료후 회수된 제품을
+            해당캠페인에 저장된 주소지로 착불 발송됩니다. *
+          </div>
+          <div class="address-section">
+            <div class="form-group">
+              <label>받는 분 성명:</label>
+              <input
+                type="text"
+                id="returnName"
+                placeholder="받는 분 이름을 입력해주세요"
+              />
+            </div>
+            <div class="form-group">
+              <label>연락처:</label>
+              <input type="tel" id="returnPhone" placeholder="010-0000-0000" />
+            </div>
+            <div class="address-input-group">
+              <div class="form-group">
+                <label>주소:</label>
+                <div class="postcode-input">
+                  <input
+                    type="text"
+                    id="returnAddress"
+                    placeholder="주소를 입력해주세요"
+                  />
+                  <button
+                    type="button"
+                    class="postcode-btn"
+                    onclick="saveReturnAddress()"
+                  >
+                    주소저장
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <h3>
+            캠페인 현황
+            <span class="notification-bell">
+              <span class="bell-icon">🔔</span>
+              <span class="notification-dot"></span>
+            </span>
+          </h3>
+
+          <div class="inquiry-container">
+            <!-- 업데이트 현황 섹션 -->
+            <div class="update-section">
+              <h4>캠페인 업데이트 현황</h4>
+              <div class="update-timeline"></div>
+            </div>
+
+            <!-- 문의 게시판 섹션 -->
+            <div class="inquiry-board-section">
+              <h4>캠페인 문의</h4>
+
+              <!-- 기존 문의들 -->
+              <div class="inquiry-list"></div>
+
+              <!-- 새 문의 작성 -->
+              <div class="new-inquiry-form">
+                <div class="form-header">
+                  <h5>새 문의 작성</h5>
+                </div>
+                <div class="form-body">
+                  <input
+                    type="text"
+                    id="inquiryTitle"
+                    placeholder="문의 제목을 입력하세요"
+                    class="inquiry-title-input"
+                  />
+                  <textarea
+                    id="inquiryContent"
+                    placeholder="문의 내용을 상세히 입력하세요..."
+                    rows="4"
+                    class="inquiry-content-input"
+                  ></textarea>
+                  <button class="submit-inquiry-btn" onclick="submitInquiry()">
+                    문의 등록
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

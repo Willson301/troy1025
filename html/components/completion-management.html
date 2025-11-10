@@ -1,0 +1,325 @@
+<div class="header">
+  <h1 class="page-title">완료마감 관리</h1>
+  <p class="page-subtitle">
+    마감 임박한 캠페인들을 테이블 형태로 확인하고 신속하게 처리하세요
+  </p>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card" data-status="all">
+    <div class="stat-number" id="total-count">28</div>
+    <div class="stat-label">전체</div>
+  </div>
+  <div class="stat-card" data-status="urgent">
+    <div class="stat-number" id="urgent-count" style="color: #dc2626">5</div>
+    <div class="stat-label">긴급</div>
+  </div>
+  <div class="stat-card" data-status="tomorrow">
+    <div class="stat-number" id="tomorrow-count" style="color: #f59e0b">8</div>
+    <div class="stat-label">내일 마감</div>
+  </div>
+  <div class="stat-card" data-status="completed">
+    <div class="stat-number" id="completed-count" style="color: #10b981">
+      18
+    </div>
+    <div class="stat-label">완료</div>
+  </div>
+</div>
+
+<div class="search-section">
+  <div class="search-controls">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="캠페인 제목검색"
+      id="search-input"
+    />
+    <button class="search-btn" id="search-btn">검색</button>
+    <button class="reset-btn" id="reset-btn">초기화</button>
+    <button class="excel-download-btn" id="excel-btn">엑셀 다운로드</button>
+  </div>
+  <div class="notice-box">
+    마감이 임박한 캠페인들을 우선순위에 따라 처리하세요. 긴급 캠페인부터 확인해
+    주시기 바랍니다.
+  </div>
+</div>
+
+<div class="completion-table-container">
+  <div class="table-header">
+    <h3>마감 임박 캠페인 테이블</h3>
+    <div class="table-actions">
+      <select id="urgency-filter" class="filter-select">
+        <option value="all">모든 우선순위</option>
+        <option value="urgent">긴급</option>
+        <option value="high">높음</option>
+        <option value="normal">보통</option>
+      </select>
+      <select id="status-filter" class="filter-select">
+        <option value="all">모든 상태</option>
+        <option value="critical">매우 위험</option>
+        <option value="urgent">긴급</option>
+        <option value="warning">주의</option>
+        <option value="ready">완료가능</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="excel-table">
+    <table id="completion-table">
+      <thead>
+        <tr>
+          <th>캠페인번호</th>
+          <th>캠페인명</th>
+          <th>마감일</th>
+          <th>진행률</th>
+          <th>목표/달성</th>
+          <th>우선순위</th>
+          <th>상태</th>
+          <th>처리</th>
+        </tr>
+      </thead>
+      <tbody id="completion-tbody">
+        <tr>
+          <td>CAM-001</td>
+          <td>아이폰 15 프로 케이스 구매평 캠페인</td>
+          <td>2025-09-24</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%"></div>
+              </div>
+              <span class="progress-text">45%</span>
+            </div>
+          </td>
+          <td>54/120</td>
+          <td><span class="urgency-badge critical">매우위험</span></td>
+          <td><span class="status-badge red">마감위험</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn view" onclick="viewCampaign('CAM-001')">
+                보기
+              </button>
+              <button
+                class="action-btn urgent"
+                onclick="sendUrgentAlert('CAM-001')"
+              >
+                긴급알림
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>CAM-002</td>
+          <td>블루투스 이어폰 구매평 캠페인</td>
+          <td>2025-09-24</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 78%"></div>
+              </div>
+              <span class="progress-text">78%</span>
+            </div>
+          </td>
+          <td>66/85</td>
+          <td><span class="urgency-badge urgent">긴급</span></td>
+          <td><span class="status-badge orange">주의필요</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn view" onclick="viewCampaign('CAM-002')">
+                보기
+              </button>
+              <button
+                class="action-btn remind"
+                onclick="sendReminder('CAM-002')"
+              >
+                알림
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>CAM-003</td>
+          <td>스마트워치 밴드 구매평 캠페인</td>
+          <td>2025-09-25</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 92%"></div>
+              </div>
+              <span class="progress-text">92%</span>
+            </div>
+          </td>
+          <td>87/95</td>
+          <td><span class="urgency-badge high">높음</span></td>
+          <td><span class="status-badge green">완료가능</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn view" onclick="viewCampaign('CAM-003')">
+                보기
+              </button>
+              <button
+                class="action-btn complete"
+                onclick="completeCampaign('CAM-003')"
+              >
+                완료
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>CAM-004</td>
+          <td>무선 키보드 체험단 캠페인</td>
+          <td>2025-09-25</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 96%"></div>
+              </div>
+              <span class="progress-text">96%</span>
+            </div>
+          </td>
+          <td>58/60</td>
+          <td><span class="urgency-badge normal">보통</span></td>
+          <td><span class="status-badge green">완료가능</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn view" onclick="viewCampaign('CAM-004')">
+                보기
+              </button>
+              <button
+                class="action-btn complete"
+                onclick="completeCampaign('CAM-004')"
+              >
+                완료
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>CAM-005</td>
+          <td>스킨케어 세트 체험단 캠페인</td>
+          <td>2025-09-26</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 38%"></div>
+              </div>
+              <span class="progress-text">38%</span>
+            </div>
+          </td>
+          <td>19/50</td>
+          <td><span class="urgency-badge critical">매우위험</span></td>
+          <td><span class="status-badge red">마감위험</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn view" onclick="viewCampaign('CAM-005')">
+                보기
+              </button>
+              <button
+                class="action-btn urgent"
+                onclick="sendUrgentAlert('CAM-005')"
+              >
+                긴급알림
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>CAM-006</td>
+          <td>헬스 보조제 체험단 캠페인</td>
+          <td>2025-09-26</td>
+          <td>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%"></div>
+              </div>
+              <span class="progress-text">85%</span>
+            </div>
+          </td>
+          <td>68/80</td>
+          <td><span class="urgency-badge urgent">긴급</span></td>
+          <td><span class="status-badge orange">주의필요</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn view" onclick="viewCampaign('CAM-006')">
+                보기
+              </button>
+              <button
+                class="action-btn remind"
+                onclick="sendReminder('CAM-006')"
+              >
+                알림
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div
+  class="pagination"
+  style="justify-content: center; gap: 8px; margin: 16px 0"
+>
+  <button class="page-btn" disabled>‹</button>
+  <button class="page-btn active">1</button>
+  <button class="page-btn">2</button>
+  <button class="page-btn">›</button>
+</div>
+
+<!-- 완료마감 상세 모달 -->
+<div class="modal" id="completionDetailModal" style="display: none">
+  <div
+    class="modal-content"
+    style="max-width: 720px; border-radius: 14px; overflow: hidden"
+  >
+    <div
+      class="modal-header"
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        border-bottom: 1px solid #e5e7eb;
+      "
+    >
+      <h3 style="margin: 0; font-size: 18px; color: #111827">캠페인 상세</h3>
+      <button
+        class="close-btn"
+        onclick="closeCompletionDetailModal()"
+        style="
+          font-size: 22px;
+          color: #6b7280;
+          background: none;
+          border: 0;
+          cursor: pointer;
+        "
+      >
+        &times;
+      </button>
+    </div>
+    <div
+      class="modal-body"
+      style="padding: 16px 18px"
+      id="completionDetailContent"
+    >
+      <!-- 동적 상세 -->
+    </div>
+    <div
+      class="modal-footer"
+      style="
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        padding: 12px 18px;
+        border-top: 1px solid #e5e7eb;
+      "
+    >
+      <button class="btn btn-secondary" onclick="closeCompletionDetailModal()">
+        닫기
+      </button>
+    </div>
+  </div>
+  <div onclick="closeCompletionDetailModal()"></div>
+</div>

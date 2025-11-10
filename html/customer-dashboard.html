@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고객 대시보드 - TROY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/./customer-dashboard.css" />
+    <!-- 공통 대시보드 스타일 -->
+    <link rel="stylesheet" href="../css/dashboard-common.css" />
+    <link rel="stylesheet" href="../css/notice-board-component.css" />
+    <link rel="stylesheet" href="../css/service-intro.css" />
+    <link rel="stylesheet" href="../css/service-info-component.css" />
+    <!-- 캠페인 관리 스타일 -->
+    <link rel="stylesheet" href="../css/campaign-management.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- 사이드바 -->
+      <div class="sidebar">
+        <div class="logo-section">
+          <div class="logo" onclick="goToHome()" style="cursor: pointer">
+            TROY
+          </div>
+          <div class="company-name">트로이 인터내셔널</div>
+        </div>
+
+        <div class="user-info">
+          <div class="user-name">고객님</div>
+          <div class="user-role">고객</div>
+        </div>
+
+        
+
+        <button
+          class="new-campaign-btn"
+          onclick="openCampaignCreateModal()"
+        >
+          <strong>새로운 캠페인 등록</strong>
+          <div id="container-stars">
+            <div id="stars"></div>
+          </div>
+          <div id="glow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+        </button>
+
+        <div class="customer-menu-section">
+          <div class="menu-item" onclick="loadNoticeBoard()">공지사항</div>
+          <div class="menu-item" data-menu="service-intro" onclick="loadServiceInfo()">서비스 소개</div>
+        </div>
+
+        <div class="customer-menu-section">
+          <div class="menu-item" onclick="loadCustomerCampaign()">캠페인 현황</div>
+          <div class="menu-item" onclick="loadCustomerScheduleManagement()">스케줄 관리</div>
+        </div>
+
+        <div class="customer-menu-section">
+          <div class="menu-item" onclick="loadCustomerOneToOne()">1:1 문의</div>
+        </div>
+
+        <div class="customer-menu-section">
+          <div class="menu-item" onclick="loadCustomerPaymentHistory()">결제내역</div>
+          <div class="menu-item" onclick="loadCustomerMyInfo()">나의 정보</div>
+        </div>
+
+        <div
+          class="logout"
+          onclick="window.location.href='/'"
+          style="cursor: pointer"
+        >
+          로그아웃
+        </div>
+      </div>
+
+      <!-- 메인 콘텐츠 -->
+      <div class="main-content">
+  
+        </div>
+
+       
+
+    <!-- 공통 대시보드 스크립트 -->
+    <script src="../js/dashboard-common.js"></script>
+    <script src="../js/components/campaign-management.js"></script>
+    <script>
+      // 즉시 실행
+      if (typeof ensureRoleSessionToken === "function") ensureRoleSessionToken();
+      if (typeof updateSidebarNameFromProfile === "function") updateSidebarNameFromProfile();
+      
+      // DOM 로드 후에도 실행 (안전장치)
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof ensureRoleSessionToken === "function")
+          ensureRoleSessionToken();
+        if (typeof updateSidebarNameFromProfile === "function")
+          updateSidebarNameFromProfile();
+        
+        // 고객사 대시보드 초기 로딩 시 캠페인 현황 화면 자동 로드
+        if (typeof loadCustomerCampaign === "function") {
+          loadCustomerCampaign();
+        }
+      });
+    </script>
+    <script src="../js/./customer-dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<div class="main-content">
+  <div class="payments-header">
+    <h1>결제 내역</h1>
+    <p>캠페인 결제 내역을 확인하고 관리하세요.</p>
+  </div>
+
+  <div class="payments-stats">
+    <div class="stat-card">
+      <div class="stat-value" id="stat-review">0건</div>
+      <div class="stat-label">쿠팡구매평</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-traffic">0건</div>
+      <div class="stat-label">유입형슬롯</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-experience">0건</div>
+      <div class="stat-label">체험단</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-content">0건</div>
+      <div class="stat-label">콘텐츠제작</div>
+    </div>
+  </div>
+
+  <div class="payments-filters">
+    <input type="text" id="searchKeyword" placeholder="캠페인명 검색..." />
+    <select id="filterService">
+      <option value="all">전체 서비스</option>
+      <option value="review">쿠팡구매평</option>
+      <option value="traffic">유입형</option>
+      <option value="experience">체험단</option>
+      <option value="content">콘텐츠제작</option>
+    </select>
+    <select id="filterStatus">
+      <option value="all">전체 상태</option>
+      <option value="completed">완료</option>
+      <option value="progress">진행중</option>
+      <option value="pending">대기</option>
+    </select>
+    <button class="btn primary" id="btnSearch">검색</button>
+    <button class="btn" id="btnReset">초기화</button>
+    <button class="btn success" id="btnExport">내보내기</button>
+  </div>
+
+  <div class="payments-table-wrapper">
+    <table class="payments-table">
+      <thead>
+        <tr>
+          <th>결제일</th>
+          <th>캠페인 정보</th>
+          <th>클라이언트</th>
+          <th>서비스</th>
+          <th>수량</th>
+          <th>단가</th>
+          <th>결제금액</th>
+          <th>상태</th>
+        </tr>
+      </thead>
+      <tbody id="paymentsBody">
+        <tr>
+          <td colspan="8" class="empty">데이터를 불러오는 중...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

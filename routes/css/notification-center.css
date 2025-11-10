@@ -1,0 +1,632 @@
+/* 알림 센터 스타일 */
+.notification-center {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: clamp(20px, 4vw, 32px);
+  margin-bottom: 24px;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.notification-header h3 {
+  margin: 0;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.notification-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.filter-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.notification-list {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.notification-item:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.notification-item.unread {
+  background: #f8fafc;
+  border-left: 4px solid #3b82f6;
+}
+
+.notification-item.unread::before {
+  content: "NEW";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ef4444;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.notification-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.notification-icon.payment {
+  background: #dbeafe;
+  color: #3b82f6;
+}
+
+.notification-icon.campaign {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.notification-icon.inquiry {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.notification-icon.progress {
+  background: #e0e7ff;
+  color: #7c3aed;
+}
+
+.notification-icon.system {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* 새로운 알림 타입별 아이콘 스타일 */
+.notification-icon.payment_request {
+  background: #dbeafe;
+  color: #3b82f6;
+}
+
+.notification-icon.payment_completed {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.notification-icon.campaign_completed {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.notification-icon.campaign_approval {
+  background: #e0e7ff;
+  color: #7c3aed;
+}
+
+.notification-icon.campaign_modification {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.notification-icon.progress_update {
+  background: #e0e7ff;
+  color: #7c3aed;
+}
+
+.notification-icon.progress_warning {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.notification-icon.member_signup {
+  background: #f0f9ff;
+  color: #0ea5e9;
+}
+
+.notification-icon.settlement_completed {
+  background: #f0fdf4;
+  color: #22c55e;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 알림 헤더 스타일 */
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.notification-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 우선순위 배지 */
+.priority-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.priority-badge.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.priority-badge.low {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* 사용자 정보 스타일 */
+.notification-user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.company-name {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.user-type {
+  background: #e0e7ff;
+  color: #7c3aed;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* 알림 메타 정보 개선 */
+.notification-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: #9ca3af;
+  align-items: flex-start;
+}
+
+.notification-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* 우선순위별 알림 아이템 스타일 */
+.notification-item.high {
+  border-left: 4px solid #dc2626;
+  background: #fef2f2;
+}
+
+.notification-item.low {
+  opacity: 0.8;
+}
+
+.notification-message {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.notification-type {
+  background: #f3f4f6;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.notification-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.notification-actions-item {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn-notification {
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-mark-read {
+  background: #10b981;
+  color: white;
+}
+
+.btn-mark-read:hover {
+  background: #059669;
+}
+
+.btn-view-detail {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-view-detail:hover {
+  background: #2563eb;
+}
+
+/* 알림 상세보기 모달 */
+#notificationModal .modal-content {
+  max-width: 600px;
+  width: 95%;
+}
+
+.notification-detail {
+  padding: 20px 0;
+}
+
+.notification-detail .notification-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.notification-detail .notification-message {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.notification-detail .notification-meta {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .notification-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .notification-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .notification-filters {
+    justify-content: center;
+  }
+
+  .notification-item {
+    padding: 12px;
+  }
+
+  .notification-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  .notification-title {
+    font-size: 14px;
+  }
+
+  .notification-message {
+    font-size: 13px;
+  }
+}
+
+/* 캠페인 문의 모달 스타일 */
+.campaign-inquiry-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.campaign-inquiry-modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.campaign-inquiry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.campaign-inquiry-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.campaign-inquiry-body {
+  padding: 24px;
+}
+
+.inquiry-info {
+  margin-bottom: 24px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row label {
+  font-weight: 600;
+  color: #374151;
+  min-width: 100px;
+}
+
+.info-row span {
+  color: #6b7280;
+  text-align: right;
+  flex: 1;
+}
+
+.user-type-badge {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.campaign-id {
+  font-family: monospace;
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.inquiry-content {
+  margin-bottom: 24px;
+}
+
+.inquiry-content label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.inquiry-text {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  color: #374151;
+  line-height: 1.6;
+  min-height: 80px;
+}
+
+.inquiry-response label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.inquiry-response textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.inquiry-response textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.campaign-inquiry-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+  border-radius: 0 0 12px 12px;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 480px) {
+  .notification-center {
+    padding: 16px;
+  }
+
+  .notification-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .notification-icon {
+    margin-bottom: 8px;
+  }
+
+  .notification-actions-item {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .campaign-inquiry-modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+
+  .campaign-inquiry-body {
+    padding: 16px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .info-row span {
+    text-align: left;
+  }
+}

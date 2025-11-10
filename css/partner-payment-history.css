@@ -1,0 +1,301 @@
+/* 파트너 결제내역 전용 스타일 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.page-btn {
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.page-btn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+.page-btn.active {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+}
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.campaign-list {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 2px solid #255ffe;
+}
+.campaign-header {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: 120px 1.3fr 1fr 120px 80px 120px 140px 100px;
+  gap: 24px;
+  font-size: 14px;
+  color: #475569;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid #cbd5e1;
+}
+.campaign-item {
+  padding: 24px 32px;
+  border-bottom: 1px solid #f1f5f9;
+  display: grid;
+  grid-template-columns: 120px 1.3fr 1fr 120px 80px 120px 140px 100px;
+  gap: 24px;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.campaign-item:hover {
+  background: #f8fafc;
+  border-left: 4px solid #255ffe;
+  transform: translateX(2px);
+}
+.campaign-item:last-child {
+  border-bottom: none;
+}
+.campaign-image {
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px dashed #cbd5e1;
+}
+.campaign-info h3 {
+  font-size: 16px;
+  color: #1e293b;
+  margin-bottom: 8px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.campaign-id {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.campaign-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.tag.pick {
+  background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
+  color: #92400e;
+}
+.tag.feature {
+  background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
+  color: #1e40af;
+}
+.campaign-status {
+  text-align: center;
+}
+.status-badge {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.status-badge.blue {
+  background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
+  color: #1e40af;
+}
+.status-badge.orange {
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+  color: #c2410c;
+}
+.status-badge.green {
+  background: linear-gradient(135deg, #dcfce7 0%, #86efac 100%);
+  color: #166534;
+}
+.status-badge.red {
+  background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+  color: #dc2626;
+}
+.campaign-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid #255ffe;
+  background: #fff;
+  color: #255ffe;
+  transition: all 0.3s ease;
+}
+.action-btn:hover {
+  background: #255ffe;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 95, 254, 0.3);
+}
+.delete-btn {
+  background: transparent;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.delete-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.2);
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 32px 0;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.pagination-btn {
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  transition: all 0.3s ease;
+  min-width: 44px;
+  text-align: center;
+}
+
+.pagination-btn:hover {
+  border-color: #255ffe;
+  background: #f8fafc;
+  color: #255ffe;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 95, 254, 0.15);
+}
+
+.pagination-btn.active {
+  background: linear-gradient(135deg, #255ffe 0%, #1d4ed8 100%);
+  color: #fff;
+  border-color: #255ffe;
+  box-shadow: 0 4px 16px rgba(37, 95, 254, 0.3);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pagination-btn:disabled:hover {
+  border-color: #e2e8f0;
+  background: #fff;
+  color: #475569;
+  box-shadow: none;
+  transform: none;
+}
+
+.pagination-ellipsis {
+  padding: 12px 8px;
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.page-info {
+  margin-left: 16px;
+  padding: 8px 16px;
+  background: #f8fafc;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 1200px) {
+  .campaign-header,
+  .campaign-item {
+    grid-template-columns: 100px 1fr 80px 80px 60px 80px 100px 80px;
+    gap: 16px;
+  }
+  .campaign-image {
+    width: 120px;
+    height: 80px;
+  }
+}
+@media (max-width: 768px) {
+  .campaign-header,
+  .campaign-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+  .campaign-info {
+    text-align: left;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}

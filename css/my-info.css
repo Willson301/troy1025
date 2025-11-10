@@ -1,0 +1,514 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f5f5f5;
+  color: #000007;
+  line-height: 1.5;
+}
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  color: #255ffe;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.back-btn:hover {
+  color: #1d4ed8;
+  transform: translateX(-4px);
+}
+.basic-info-section {
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  padding: 40px 32px;
+  border-bottom: 8px solid #f9f9f9;
+}
+.section-title {
+  font-size: 20.7px;
+  font-weight: 500;
+  color: #1740bc;
+  margin-bottom: 16px;
+}
+.section-description {
+  font-size: 14.5px;
+  color: #b8b7ba;
+  margin-bottom: 32px;
+}
+.info-grid {
+  display: grid;
+  gap: 24px;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.info-label {
+  font-size: 17.5px;
+  font-weight: 400;
+  color: #000007;
+  min-width: 120px;
+}
+.info-value {
+  font-size: 17.5px;
+  color: #9a9a9d;
+  flex: 1;
+}
+.info-actions {
+  display: flex;
+  gap: 12px;
+}
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 13.75px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #000007;
+  border: 1px solid #f8f8f8;
+}
+.btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+.btn-primary {
+  background-color: #f0f1f1;
+  color: #403851;
+}
+.btn-primary:hover {
+  background-color: #e0e1e1;
+}
+.code-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+.code-label {
+  font-size: 17.1px;
+  color: #1740bc;
+}
+.code-value {
+  font-size: 18px;
+  color: #8b8a8d;
+}
+.code-actions {
+  display: flex;
+  gap: 12px;
+}
+.contact-section {
+  padding: 40px 32px;
+  background: #ffffff;
+}
+.contact-title {
+  font-size: 19.7px;
+  font-weight: 500;
+  color: #000007;
+  margin-bottom: 16px;
+}
+.contact-description {
+  font-size: 14.1px;
+  color: #8484aa;
+  margin-bottom: 32px;
+}
+.contact-form {
+  display: grid;
+  gap: 24px;
+}
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.form-label {
+  font-size: 18px;
+  color: #000007;
+  min-width: 120px;
+}
+.form-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #fefefe;
+}
+.form-input:focus {
+  outline: none;
+  border-color: #255ffe;
+}
+.notification-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  background: #f8f9fa;
+  border: 1px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.notification-toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.checkbox-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e1e5e9;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.checkbox-label::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.checkbox-input:checked + .checkbox-label {
+  background-color: #255ffe;
+}
+.checkbox-input:checked + .checkbox-label::after {
+  transform: translateX(20px);
+}
+.notification-text {
+  font-size: 16px;
+  color: #666;
+  flex: 1;
+}
+.notification-title {
+  font-size: 16px;
+  color: #000007;
+  font-weight: 500;
+}
+.save-btn {
+  background-color: #255ffe;
+  color: #fffbfa;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 13px;
+  font-size: 15.2px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background-color 0.2s;
+}
+.save-btn:hover {
+  background-color: #1e4fd8;
+}
+.tax-section {
+  padding: 40px 32px;
+  background: #ffffff;
+}
+.tax-title {
+  font-size: 19.8px;
+  font-weight: 500;
+  color: #202024;
+  margin-bottom: 16px;
+}
+.tax-description {
+  font-size: 14.1px;
+  color: #0b0b21;
+  margin-bottom: 32px;
+}
+.tax-form {
+  display: grid;
+  gap: 16px;
+}
+.tax-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.tax-label {
+  font-size: 16px;
+  color: #0b0b21;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+.tax-input {
+  font-size: 16px;
+  color: #0b0b21;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  text-align: center;
+}
+.tax-input:focus {
+  outline: none;
+  border-color: #255ffe;
+}
+.tax-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+.edit-btn {
+  background-color: #f0f0f0;
+  color: #000007;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 13px;
+  font-size: 15.2px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.edit-btn:hover {
+  background-color: #e0e0e0;
+}
+.tax-input:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+.tax-description-box {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #255ffe;
+}
+.tax-description-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+.deposit-section {
+  padding: 40px 32px;
+  background: #ffffff;
+}
+.deposit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.deposit-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.deposit-icon {
+  width: 36px;
+  height: 37px;
+  background-color: #ffd700;
+  border-radius: 50%;
+}
+.deposit-details h3 {
+  font-size: 16px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.deposit-amount {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffd700;
+}
+.deposit-actions {
+  display: flex;
+  gap: 12px;
+}
+.deposit-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 16px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-charge {
+  background-color: #255ffe;
+  color: #fff;
+  border: 1px solid #feea8c;
+}
+.btn-charge:hover {
+  background-color: #1e4fd8;
+}
+.btn-refund {
+  background-color: #fefefe;
+  color: #9b9a9d;
+  border: 1px solid #ebebeb;
+}
+.btn-refund:hover {
+  background-color: #f0f0f0;
+}
+.deposit-history {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+.history-text {
+  font-size: 15.4px;
+  color: #a0a0a4;
+}
+@media (max-width: 768px) {
+  .container {
+    margin: 0;
+  }
+  .basic-info-section,
+  .contact-section,
+  .tax-section,
+  .deposit-section {
+    padding: 24px 16px;
+  }
+  .tax-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .deposit-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+
+/* ===== 인라인에서 분리된 스타일 ===== */
+
+      /* 모달 스타일 */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 24px 0;
+        border-bottom: 1px solid #e2e8f0;
+        margin-bottom: 24px;
+      }
+
+      .modal-header h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1e293b;
+        margin: 0;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #64748b;
+        padding: 4px;
+        border-radius: 4px;
+        transition: all 0.2s;
+      }
+
+      .close-btn:hover {
+        background: #f1f5f9;
+        color: #1e293b;
+      }
+
+      .modal-body {
+        padding: 0 24px 24px;
+      }
+
+      /* 체크박스 스타일 */
+      .notification-toggle {
+        position: relative;
+      }
+
+      .checkbox-input {
+        opacity: 0;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .checkbox-label {
+        width: 20px;
+        height: 20px;
+        background: white;
+        border: 2px solid #cbd5e1;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        transition: all 0.2s ease;
+      }
+
+      .checkbox-input:checked + .checkbox-label {
+        background: #255ffe;
+        border-color: #255ffe;
+      }
+
+      .checkbox-input:checked + .checkbox-label .checkmark {
+        display: block !important;
+      }
+
+      .checkmark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        display: none;
+      }
+    
+

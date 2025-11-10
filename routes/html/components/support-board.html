@@ -1,0 +1,114 @@
+<div class="main-content">
+  <div class="header">
+    <h1 class="page-title">1:1 문의 처리</h1>
+    <p class="page-subtitle">
+      신청된 회원사들의 가입을 검토하고 승인 처리하세요
+    </p>
+  </div>
+
+  <div class="content-area">
+    <div class="support-grid">
+      <div class="support-card urgent">
+        <div class="card-content">
+          <h3 class="support-title">캠페인 승인 지연 문의</h3>
+          <div class="support-meta">문의자: ABC 마케팅</div>
+          <div class="priority-badge urgent">긴급</div>
+          <div class="support-details">
+            <div>접수일: 2024-09-09</div>
+            <div>카테고리: 캠페인 관련</div>
+            <div>담당자: 김지원</div>
+          </div>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-header">
+            <span class="progress-label">처리 진행도</span>
+            <span class="progress-percent urgent">30%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill urgent" style="width: 30%"></div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn reply-btn" onclick="replySupport('SUP-001')">
+            답변하기
+          </button>
+          <button
+            class="btn complete-btn urgent"
+            onclick="completeSupport('SUP-001')"
+          >
+            완료
+          </button>
+        </div>
+      </div>
+
+      <div class="support-card normal">
+        <div class="card-content">
+          <h3 class="support-title">정산 내역 확인 요청</h3>
+          <div class="support-meta">문의자: 디지털 플러스</div>
+          <div class="priority-badge normal">일반</div>
+          <div class="support-details">
+            <div>접수일: 2024-09-08</div>
+            <div>카테고리: 정산 관련</div>
+            <div>담당자: 이수진</div>
+          </div>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-header">
+            <span class="progress-label">처리 진행도</span>
+            <span class="progress-percent normal">75%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill normal" style="width: 75%"></div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn reply-btn" onclick="replySupport('SUP-002')">
+            답변하기
+          </button>
+          <button
+            class="btn complete-btn normal"
+            onclick="completeSupport('SUP-002')"
+          >
+            완료
+          </button>
+        </div>
+      </div>
+
+      <div class="support-card completed">
+        <div class="card-content">
+          <h3 class="support-title">플랫폼 이용 문의</h3>
+          <div class="support-meta">문의자: 스마트솔루션</div>
+          <div class="priority-badge completed">완료</div>
+          <div class="support-details">
+            <div>접수일: 2024-09-07</div>
+            <div>카테고리: 기술 지원</div>
+            <div>담당자: 박민수</div>
+          </div>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-header">
+            <span class="progress-label">처리 진행도</span>
+            <span class="progress-percent completed">100%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill completed" style="width: 100%"></div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn detail-btn" onclick="viewSupportDetail('SUP-003')">
+            상세보기
+          </button>
+          <button class="btn archive-btn" onclick="archiveSupport('SUP-003')">
+            보관
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

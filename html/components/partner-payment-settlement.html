@@ -1,0 +1,81 @@
+<div class="dashboard-content-wrapper">
+  <div class="header">
+    <h1 class="page-title">파트너 정산</h1>
+    <p class="page-subtitle">
+      내가 초대한 고객들의 구매평 건수에 따른 정산 내역을 확인하세요
+    </p>
+  </div>
+
+  <!-- 정산 통계 카드 -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number" id="september-total">-</div>
+      <div class="stat-label">이번 달 정산 예정</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="august-total">-</div>
+      <div class="stat-label">누적 정산</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="invited-count">-</div>
+      <div class="stat-label">초대한 고객 수</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">₩300</div>
+      <div class="stat-label">건당 수수료</div>
+    </div>
+  </div>
+
+  <!-- 검색 및 필터 섹션 -->
+  <div class="search-section">
+    <div class="search-controls">
+      <select id="month-filter" class="filter-select"></select>
+      <input
+        type="text"
+        placeholder="고객명 검색"
+        id="search-input"
+        class="search-input"
+      />
+      <button id="search-btn" class="search-btn">검색</button>
+      <button id="reset-btn" class="reset-btn">초기화</button>
+      <button id="excel-btn" class="excel-btn">엑셀 다운로드</button>
+    </div>
+    <div class="notice-box">
+      매월 1일 기준으로 전월 구매평 건수를 집계하여 정산합니다. 건당 300원씩
+      지급됩니다.
+    </div>
+    <div class="info-box">
+      초대코드로 가입한 회원의 서비스 이용건수를 기반해서 정산되며, 매월 1일
+      캠페인 완료를 기준으로 하여 지급되기에 진행중인 캠페인의 정산은 다음달로
+      이월됩니다.
+    </div>
+  </div>
+
+  <!-- 정산 내역 테이블 -->
+  <div class="settlement-table-container">
+    <h2 class="table-title">정산 내역</h2>
+    <div class="settlement-table">
+      <div class="table-header">
+        <div>정산 월</div>
+        <div>고객명</div>
+        <div>가입일</div>
+        <div>구매평 건수</div>
+        <div>건당 단가</div>
+        <div>정산 금액</div>
+        <div>상태</div>
+      </div>
+      <div id="partnerSettlementLoading" style="padding: 16px; color: #6b7280">
+        로딩중...
+      </div>
+      <div
+        id="partnerSettlementError"
+        style="display: none; padding: 16px; color: #dc2626"
+      >
+        데이터를 불러오지 못했습니다.
+      </div>
+      <div id="partnerSettlementBody"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/components/partner-payment-settlement.js"></script>

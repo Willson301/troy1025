@@ -1,0 +1,62 @@
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+  background: #f7f7f8;
+}
+
+strong {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-top: 0;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+a {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #255ffe;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-image {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}

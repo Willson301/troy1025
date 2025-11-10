@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 정보</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/./agency-dashboard.css" />
+    <link rel="stylesheet" href="../css/./my-info.css" />
+      <link rel="stylesheet" href="../css/my-info.css">
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- 사이드바 -->
+      <div class="sidebar">
+        <div class="logo-section">
+          <div class="logo" onclick="goToHome()" style="cursor: pointer">
+            TROY
+          </div>
+          <div class="company-name">트로이 인터내셔널</div>
+        </div>
+
+        <div class="user-info" onclick="showUserInfoModal()" style="cursor: pointer;">
+          <div class="user-name">대행사님</div>
+          <div class="user-role">대행사</div>
+        </div>
+
+
+        <button
+          class="new-campaign-btn"
+          onclick="openCampaignCreateModal()"
+        >
+          <strong>캠페인 생성</strong>
+          <div id="container-stars">
+            <div id="stars"></div>
+          </div>
+          <div id="glow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+        </button>
+
+        <div class="menu-section">
+          <div class="menu-item" onclick="showNoticeBoard()">공지사항</div>
+          <div class="menu-item" onclick="showServiceInfo()">서비스 소개</div>
+        </div>
+
+        <div class="menu-section">
+          <div class="menu-title">대행사 관리</div>
+          <div class="menu-item" onclick="window.location.href='agency-dashboard.html'">캠페인 관리</div>
+          <div class="menu-item" onclick="window.location.href='client-management-integrated.html'">클라이언트 관리</div>
+          <div class="menu-item" onclick="window.location.href='schedule-management.html'">스케줄 관리</div>
+        </div>
+
+        <div class="menu-section">
+          <div class="menu-title">고객지원</div>
+          <div class="menu-item" onclick="window.location.href='customer-support.html'">1:1 문의</div>
+        </div>
+
+        <div class="menu-section">
+          <div class="menu-title">계정관리</div>
+          <div class="menu-item" onclick="window.location.href='customer-payment-history.html'">결제내역</div>
+          <div class="menu-item active">나의 정보</div>
+        </div>
+
+        <div class="logout" onclick="window.location.href='/'" style="cursor: pointer;">로그아웃</div>
+      </div>
+
+      <!-- 메인 콘텐츠 -->
+      <div class="main-content" style="padding: 32px;">
+        
+        <!-- 페이지 헤더 -->
+        <div class="header" style="margin-bottom: 32px;">
+          <h1 class="page-title" style="font-size: 28px; margin-bottom: 8px;">나의 정보</h1>
+          <p class="page-subtitle" style="font-size: 16px; color: #64748b;">계정 정보를 확인하고 관리하세요</p>
+        </div>
+
+        <!-- 메인 레이아웃 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; height: calc(100vh - 200px);">
+          
+          <!-- 왼쪽 컬럼 -->
+          <div style="display: flex; flex-direction: column; gap: 24px; height: 100%;">
+            <!-- 광고주기본정보 섹션 -->
+            <div class="basic-info-section" style="background: white; border: 2px solid #255ffe; border-radius: 16px; padding: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); flex: 1;">
+              <h1 class="section-title" style="font-size: 20px; margin-bottom: 16px; color: #255ffe; font-weight: 700;">광고주기본정보</h1>
+              <p class="section-description" style="font-size: 14px; margin-bottom: 24px; color: #64748b;">
+                가입 당시 입력하신 광고주님의 사업체정보입니다.
+              </p>
+
+              <div class="info-grid" style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="info-item" style="display: flex; align-items: center; gap: 12px;">
+                  <span class="info-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">법인/상호명</span>
+                  <span class="info-value" style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; flex: 1;">에드핏플</span>
+                  <button class="btn btn-primary" style="font-size: 12px; padding: 6px 12px; background: #255ffe; color: white; border: none; border-radius: 4px; cursor: pointer;" onclick="showBusinessLicense()">사업자등록사본</button>
+                </div>
+
+                <div class="info-item" style="display: flex; align-items: center; gap: 12px;">
+                  <span class="info-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">사업자번호</span>
+                  <span class="info-value" style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; flex: 1;">2773501431</span>
+                  <button class="btn btn-secondary" style="font-size: 12px; padding: 6px 12px; background: white; color: #255ffe; border: 2px solid #255ffe; border-radius: 4px; cursor: pointer;">변경하기</button>
+                </div>
+
+                <div class="info-item" style="display: flex; align-items: center; gap: 12px;">
+                  <span class="info-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">홈페이지</span>
+                  <span class="info-value" style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; flex: 1; color: #9ca3af;">미등록</span>
+                  <button class="btn btn-secondary" style="font-size: 12px; padding: 6px 12px; background: white; color: #255ffe; border: 2px solid #255ffe; border-radius: 4px; cursor: pointer;">변경하기</button>
+                </div>
+
+                <div class="info-item" style="display: flex; align-items: center; gap: 12px;">
+                  <span class="info-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">회원코드</span>
+                  <span class="info-value" style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; flex: 1;">AG240805001</span>
+                </div>
+              </div>
+
+              <div class="code-section" style="margin-top: 24px; padding: 16px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 12px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <span class="code-label" style="font-size: 13px; font-weight: 600; color: #374151;">가입일</span>
+                  <span class="code-value" style="font-size: 16px; font-weight: 500; color: #1e293b; margin-left: 16px;">2025-08-05 11:38:52</span>
+                </div>
+                <div class="code-icon" style="width: 12px; height: 12px; background: #10b981; border-radius: 50%;"></div>
+              </div>
+            </div>
+
+            <!-- 담당자 정보 섹션 -->
+            <div class="contact-section" style="background: white; border: 2px solid #255ffe; border-radius: 16px; padding: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); flex: 1;">
+              <h2 class="contact-title" style="font-size: 20px; margin-bottom: 16px; color: #255ffe; font-weight: 700;">담당자 정보</h2>
+              <p class="contact-description" style="font-size: 14px; margin-bottom: 24px; color: #64748b;">
+                트로이에서 연락을 드릴 수 있는 담당자분의 정보입니다.
+              </p>
+
+              <div class="contact-form" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="form-group">
+                  <label class="form-label" style="font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px; display: block;">성함</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    style="width: 100%; font-size: 16px; padding: 12px 16px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box;"
+                    placeholder="담당자 성함을 입력해주세요"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" style="font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px; display: block;">이메일</label>
+                  <input
+                    type="email"
+                    class="form-input"
+                    style="width: 100%; font-size: 16px; padding: 12px 16px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box;"
+                    placeholder="담당자 이메일을 입력해주세요"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" style="font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px; display: block;">연락처</label>
+                  <input
+                    type="tel"
+                    class="form-input"
+                    style="width: 100%; font-size: 16px; padding: 12px 16px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box;"
+                    placeholder="담당자 연락처를 입력해주세요"
+                  />
+                </div>
+              </div>
+
+              <div class="notification-section" style="margin: 24px 0; padding: 16px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                <div class="notification-toggle">
+                  <input type="checkbox" id="doNotDisturb" class="checkbox-input" />
+                  <label for="doNotDisturb" class="checkbox-label">
+                    <span class="checkmark">✓</span>
+                  </label>
+                </div>
+                <div>
+                  <span class="notification-title" style="font-size: 13px; font-weight: 600; color: #374151; display: block;">방해금지모드</span>
+                  <span class="notification-text" style="font-size: 12px; color: #64748b;"
+                    >밤 10시부터 아침 8시까지 알림을 안받을래요</span
+                  >
+                </div>
+              </div>
+
+              <button class="save-btn" style="width: 100%; font-size: 16px; padding: 16px; background: linear-gradient(135deg, #255ffe 0%, #1d4ed8 100%); color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 600;">위 내용으로 정보를 수정합니다</button>
+            </div>
+
+          </div>
+
+          <!-- 오른쪽 컬럼 - 광고주 세금계산서 발급정보 -->
+          <div class="tax-section" style="background: white; border: 2px solid #255ffe; border-radius: 16px; padding: 28px; box-shadow: 0 8px 25px rgba(0,0,0,0.08);">
+            <h2 class="tax-title" style="font-size: 20px; margin-bottom: 16px; color: #255ffe; font-weight: 700;">광고주 세금계산서 발급정보</h2>
+            <p class="tax-description" style="font-size: 14px; margin-bottom: 24px; color: #64748b;">
+              서비스 사용에 발생한 비용에 따른 세금계산서 발급정보입니다.
+            </p>
+
+            <div class="tax-form" id="taxForm" style="display: flex; flex-direction: column; gap: 12px;">
+              <div class="tax-row" style="display: flex; align-items: center; gap: 12px;">
+                <span class="tax-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">상호/법인명</span>
+                <input
+                  type="text"
+                  class="tax-input"
+                  style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; flex: 1;"
+                  id="companyName"
+                  placeholder="상호/법인명을 입력하세요"
+                />
+              </div>
+
+              <div class="tax-row" style="display: flex; align-items: center; gap: 12px;">
+                <span class="tax-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">사업자등록번호</span>
+                <input
+                  type="text"
+                  class="tax-input"
+                  style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; flex: 1;"
+                  id="businessNumber"
+                  placeholder="사업자등록번호를 입력하세요"
+                />
+              </div>
+
+              <div class="tax-row" style="display: flex; align-items: center; gap: 12px;">
+                <span class="tax-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">대표자 (성명)</span>
+                <input
+                  type="text"
+                  class="tax-input"
+                  style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; flex: 1;"
+                  id="ceoName"
+                  placeholder="대표자 성명을 입력하세요"
+                />
+              </div>
+
+              <div class="tax-row" style="display: flex; align-items: center; gap: 12px;">
+                <span class="tax-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">사업장 소재지</span>
+                <input
+                  type="text"
+                  class="tax-input"
+                  style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; flex: 1;"
+                  id="businessAddress"
+                  placeholder="사업장 소재지를 입력하세요"
+                />
+              </div>
+
+              <div class="tax-row" style="display: flex; align-items: center; gap: 12px;">
+                <span class="tax-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">업태</span>
+                <input
+                  type="text"
+                  class="tax-input"
+                  style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; flex: 1;"
+                  id="businessType"
+                  placeholder="업태를 입력하세요"
+                />
+              </div>
+
+              <div class="tax-row" style="display: flex; align-items: center; gap: 12px;">
+                <span class="tax-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">종목</span>
+                <input
+                  type="text"
+                  class="tax-input"
+                  style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; flex: 1;"
+                  id="businessCategory"
+                  placeholder="종목을 입력하세요"
+                />
+              </div>
+
+              <div class="tax-row" style="display: flex; align-items: center; gap: 12px;">
+                <span class="tax-label" style="font-size: 13px; font-weight: 600; color: #374151; min-width: 120px;">전자우편주소</span>
+                <input
+                  type="email"
+                  class="tax-input"
+                  style="font-size: 14px; padding: 8px 12px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; flex: 1;"
+                  id="taxEmail"
+                  placeholder="이메일 주소를 입력하세요"
+                />
+              </div>
+            </div>
+
+            <div class="tax-actions" style="margin-top: 24px; display: flex; justify-content: flex-end;">
+              <button class="save-btn" style="font-size: 16px; padding: 16px 24px; background: linear-gradient(135deg, #255ffe 0%, #1d4ed8 100%); color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 600;" id="taxSaveBtn" onclick="saveTaxInfo()">
+                저장하기
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 채팅 상담 버튼
+    <div class="chat-button">
+      <div class="chat-icon">💬</div>
+      <div class="chat-text">채팅 상담</div>
+    </div> -->
+
+    <!-- 광고주 기본정보 모달 -->
+    <div id="userInfoModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>광고주 기본정보</h3>
+          <button class="close-btn" onclick="closeUserInfoModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="info-label">법인/상호명</span>
+              <span class="info-value">에드핏플</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">사업자번호</span>
+              <span class="info-value">2773501431</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">가입일</span>
+              <span class="info-value">2025-08-05 11:38:52</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 사업자등록증 모달 -->
+    <div id="businessLicenseModal" class="modal" style="display: none;">
+      <div class="modal-content" style="max-width: 90vw; max-height: 90vh; width: 800px;">
+        <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid #e5e7eb;">
+          <h3 style="margin: 0; font-size: 18px; font-weight: 600; color: #1f2937;">사업자등록증</h3>
+          <button class="close-btn" onclick="closeBusinessLicenseModal()" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #6b7280;">&times;</button>
+        </div>
+        <div class="modal-body" style="padding: 20px; text-align: center;">
+          <div id="business-license-content">
+            <!-- 사업자등록증 내용이 여기에 표시됩니다 -->
+          </div>
+          <div class="modal-actions" style="margin-top: 20px; display: flex; gap: 12px; justify-content: center;">
+            <button onclick="downloadBusinessLicense()" style="padding: 10px 20px; background: #255ffe; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">다운로드</button>
+            <button onclick="closeBusinessLicenseModal()" style="padding: 10px 20px; background: #6b7280; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-client.js"></script>
+    <script src="../js/./agency-dashboard.js"></script>
+    <script src="../js/./my-info.js"></script>
+    
+
+    
+      <script src="../js/my-info.js"></script>
+  </body>
+</html>

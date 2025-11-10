@@ -1,0 +1,699 @@
+<div class="main-content">
+  <!-- 헤더 섹션 -->
+  <div style="margin-bottom: 32px">
+    <h1
+      style="
+        color: #1e293b;
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+      "
+    >
+      통합 결제내역
+    </h1>
+    <p style="color: #6b7280; font-size: 16px; margin: 0 0 16px 0">
+      모든 결제 및 정산 내역을 한 곳에서 관리하세요
+    </p>
+    <button
+      onclick="goBackToMain()"
+      style="
+        padding: 8px 16px;
+        background: #f8fafc;
+        border: 1px solid #255ffe;
+        border-radius: 6px;
+        color: #255ffe;
+        font-weight: 600;
+        cursor: pointer;
+      "
+    >
+      ← 메인으로 돌아가기
+    </button>
+  </div>
+
+  <div
+    style="
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    "
+  >
+    <div style="margin-bottom: 24px">
+      <h2
+        style="
+          color: #374151;
+          font-size: 20px;
+          font-weight: 600;
+          margin: 0 0 8px 0;
+        "
+      >
+        💳 결제 승인 관리
+      </h2>
+      <p style="color: #9ca3af; font-size: 14px; margin: 0">
+        고객의 결제 요청을 검토하고 승인하여 캠페인을 활성화하세요
+      </p>
+    </div>
+
+    <div
+      style="
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-bottom: 32px;
+      "
+    >
+      <div
+        style="
+          background: #f9fafb;
+          padding: 16px;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+        "
+      >
+        <div style="color: #6b7280; font-size: 12px; margin-bottom: 4px">
+          승인 대기
+        </div>
+        <div style="color: #f59e0b; font-size: 24px; font-weight: 600">5건</div>
+      </div>
+      <div
+        style="
+          background: #f9fafb;
+          padding: 16px;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+        "
+      >
+        <div style="color: #6b7280; font-size: 12px; margin-bottom: 4px">
+          오늘 승인
+        </div>
+        <div style="color: #16a34a; font-size: 24px; font-weight: 600">
+          12건
+        </div>
+      </div>
+      <div
+        style="
+          background: #f9fafb;
+          padding: 16px;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+        "
+      >
+        <div style="color: #6b7280; font-size: 12px; margin-bottom: 4px">
+          총 승인 금액
+        </div>
+        <div style="color: #374151; font-size: 24px; font-weight: 600">
+          ₩8.5M
+        </div>
+      </div>
+      <div
+        style="
+          background: #f9fafb;
+          padding: 16px;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+        "
+      >
+        <div style="color: #6b7280; font-size: 12px; margin-bottom: 4px">
+          반려
+        </div>
+        <div style="color: #dc2626; font-size: 24px; font-weight: 600">1건</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 32px">
+      <h3
+        style="
+          margin: 0 0 20px 0;
+          color: #374151;
+          font-size: 18px;
+          font-weight: 600;
+        "
+      >
+        결제 승인 대기 목록
+      </h3>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <div
+          style="
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              margin-bottom: 16px;
+            "
+          >
+            <div>
+              <div
+                style="
+                  color: #374151;
+                  font-weight: 600;
+                  font-size: 16px;
+                  margin-bottom: 4px;
+                "
+              >
+                아이폰 15 프로 케이스 구매평 캠페인
+              </div>
+              <div style="color: #9ca3af; font-size: 12px; margin-bottom: 8px">
+                PAY-2024-0912 • 고객사: 테크노 브랜드
+              </div>
+              <div
+                style="
+                  display: inline-block;
+                  padding: 3px 8px;
+                  background: #fef3c7;
+                  color: #92400e;
+                  border-radius: 12px;
+                  font-size: 10px;
+                  font-weight: 500;
+                "
+              >
+                승인 대기
+              </div>
+            </div>
+            <div style="text-align: right">
+              <div style="color: #374151; font-weight: 600; font-size: 18px">
+                ₩1,200,000
+              </div>
+              <div style="color: #9ca3af; font-size: 11px">
+                신청일: 2024.09.12
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              background: #f9fafb;
+              padding: 12px;
+              border-radius: 6px;
+              margin-bottom: 16px;
+            "
+          >
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+                font-size: 12px;
+              "
+            >
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px">
+                  캠페인 유형
+                </div>
+                <div style="color: #374151; font-weight: 500">제품형</div>
+              </div>
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px">
+                  구매평 목표
+                </div>
+                <div style="color: #374151; font-weight: 500">100건</div>
+              </div>
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px">예상 기간</div>
+                <div style="color: #374151; font-weight: 500">14일</div>
+              </div>
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px">결제 방법</div>
+                <div style="color: #374151; font-weight: 500">예치금</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div style="color: #9ca3af; font-size: 12px">
+              승인 후 캠페인이 즉시 활성화됩니다
+            </div>
+            <div style="display: flex; gap: 8px">
+              <button
+                onclick="openPayment('PAY-2024-0912')"
+                style="
+                  padding: 6px 12px;
+                  background: #f9fafb;
+                  border: 1px solid #d1d5db;
+                  border-radius: 4px;
+                  color: #6b7280;
+                  font-size: 11px;
+                  cursor: pointer;
+                "
+              >
+                상세 보기
+              </button>
+              <button
+                style="
+                  padding: 6px 12px;
+                  background: #8b5cf6;
+                  border: none;
+                  border-radius: 4px;
+                  color: white;
+                  font-size: 11px;
+                  cursor: pointer;
+                "
+              >
+                스케줄 설정
+              </button>
+              <button
+                onclick="rejectPayment('PAY-2024-0912')"
+                style="
+                  padding: 6px 12px;
+                  background: #dc2626;
+                  border: none;
+                  border-radius: 4px;
+                  color: white;
+                  font-size: 11px;
+                  cursor: pointer;
+                "
+              >
+                반려
+              </button>
+              <button
+                onclick="approvePayment('PAY-2024-0912')"
+                style="
+                  padding: 6px 12px;
+                  background: #16a34a;
+                  border: none;
+                  border-radius: 4px;
+                  color: white;
+                  font-size: 11px;
+                  cursor: pointer;
+                "
+              >
+                승인
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              margin-bottom: 16px;
+            "
+          >
+            <div>
+              <div
+                style="
+                  color: #374151;
+                  font-weight: 600;
+                  font-size: 16px;
+                  margin-bottom: 4px;
+                "
+              >
+                블루투스 이어폰 구매평 캠페인
+              </div>
+              <div style="color: #9ca3af; font-size: 12px; margin-bottom: 8px">
+                PAY-2024-0911 • 고객사: 오디오 컴퍼니
+              </div>
+              <div
+                style="
+                  display: inline-block;
+                  padding: 3px 8px;
+                  background: #fef3c7;
+                  color: #92400e;
+                  border-radius: 12px;
+                  font-size: 10px;
+                  font-weight: 500;
+                "
+              >
+                승인 대기
+              </div>
+            </div>
+            <div style="text-align: right">
+              <div style="color: #374151; font-weight: 600; font-size: 18px">
+                ₩850,000
+              </div>
+              <div style="color: #9ca3af; font-size: 11px">
+                신청일: 2024.09.11
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              background: #f9fafb;
+              padding: 12px;
+              border-radius: 6px;
+              margin-bottom: 16px;
+            "
+          >
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+                font-size: 12px;
+              "
+            >
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px">
+                  캠페인 유형
+                </div>
+                <div style="color: #374151; font-weight: 500">제품형</div>
+              </div>
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px">
+                  구매평 목표
+                </div>
+                <div style="color: #374151; font-weight: 500">80건</div>
+              </div>
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px">예상 기간</div>
+                <div style="color: #374151; font-weight: 500">10일</div>
+              </div>
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px">결제 방법</div>
+                <div style="color: #374151; font-weight: 500">예치금</div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div style="color: #9ca3af; font-size: 12px">
+              승인 후 캠페인이 즉시 활성화됩니다
+            </div>
+            <div style="display: flex; gap: 8px">
+              <button
+                onclick="openPayment('PAY-2024-0911')"
+                style="
+                  padding: 6px 12px;
+                  background: #f9fafb;
+                  border: 1px solid #d1d5db;
+                  border-radius: 4px;
+                  color: #6b7280;
+                  font-size: 11px;
+                  cursor: pointer;
+                "
+              >
+                상세 보기
+              </button>
+              <button
+                style="
+                  padding: 6px 12px;
+                  background: #8b5cf6;
+                  border: none;
+                  border-radius: 4px;
+                  color: white;
+                  font-size: 11px;
+                  cursor: pointer;
+                "
+              >
+                스케줄 설정
+              </button>
+              <button
+                onclick="rejectPayment('PAY-2024-0911')"
+                style="
+                  padding: 6px 12px;
+                  background: #dc2626;
+                  border: none;
+                  border-radius: 4px;
+                  color: white;
+                  font-size: 11px;
+                  cursor: pointer;
+                "
+              >
+                반려
+              </button>
+              <button
+                onclick="approvePayment('PAY-2024-0911')"
+                style="
+                  padding: 6px 12px;
+                  background: #16a34a;
+                  border: none;
+                  border-radius: 4px;
+                  color: white;
+                  font-size: 11px;
+                  cursor: pointer;
+                "
+              >
+                승인
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 최근 처리된 결제 -->
+      <div style="margin-top: 48px; margin-bottom: 32px">
+        <h3
+          style="
+            margin: 0 0 16px 0;
+            color: #374151;
+            font-size: 18px;
+            font-weight: 600;
+          "
+        >
+          최근 처리된 결제
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <!-- 승인완료 1 -->
+          <div
+            style="
+              background: white;
+              border: 1px solid #d1e7dd;
+              border-radius: 8px;
+              padding: 16px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div style="display: flex; align-items: center; gap: 12px">
+                <div
+                  style="
+                    background: #dcfce7;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <span style="color: #16a34a; font-size: 14px">완료</span>
+                </div>
+                <div>
+                  <div
+                    style="color: #374151; font-weight: 500; font-size: 14px"
+                  >
+                    스마트워치 밴드 리뷰 캠페인
+                  </div>
+                  <div style="color: #9ca3af; font-size: 11px">
+                    PAY-2024-0910 • 승인완료
+                  </div>
+                </div>
+              </div>
+              <div style="text-align: right">
+                <div style="color: #374151; font-weight: 500; font-size: 14px">
+                  ₩950,000
+                </div>
+                <div style="color: #9ca3af; font-size: 10px">2024.09.10</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 승인완료 2 -->
+          <div
+            style="
+              background: white;
+              border: 1px solid #d1e7dd;
+              border-radius: 8px;
+              padding: 16px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div style="display: flex; align-items: center; gap: 12px">
+                <div
+                  style="
+                    background: #dcfce7;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <span style="color: #16a34a; font-size: 14px">완료</span>
+                </div>
+                <div>
+                  <div
+                    style="color: #374151; font-weight: 500; font-size: 14px"
+                  >
+                    뷰티 제품 구매평 캠페인
+                  </div>
+                  <div style="color: #9ca3af; font-size: 11px">
+                    PAY-2024-0909 • 승인완료
+                  </div>
+                </div>
+              </div>
+              <div style="text-align: right">
+                <div style="color: #374151; font-weight: 500; font-size: 14px">
+                  ₩720,000
+                </div>
+                <div style="color: #9ca3af; font-size: 10px">2024.09.09</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 반려 1 -->
+          <div
+            style="
+              background: white;
+              border: 1px solid #fecaca;
+              border-radius: 8px;
+              padding: 16px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div style="display: flex; align-items: center; gap: 12px">
+                <div
+                  style="
+                    background: #fecaca;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <span style="color: #dc2626; font-size: 14px">❌</span>
+                </div>
+                <div>
+                  <div
+                    style="color: #374151; font-weight: 500; font-size: 14px"
+                  >
+                    게임 아이템 홍보 캠페인
+                  </div>
+                  <div style="color: #9ca3af; font-size: 11px">
+                    PAY-2024-0908 • 반려 (정책 위반)
+                  </div>
+                </div>
+              </div>
+              <div style="text-align: right">
+                <div style="color: #dc2626; font-weight: 500; font-size: 14px">
+                  ₩500,000
+                </div>
+                <div style="color: #9ca3af; font-size: 10px">2024.09.08</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 빠른 작업 -->
+      <div
+        style="
+          background: #f9fafb;
+          padding: 16px;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+        "
+      >
+        <h4
+          style="
+            margin: 0 0 12px 0;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+          "
+        >
+          빠른 작업
+        </h4>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <button
+            style="
+              padding: 8px 16px;
+              background: #16a34a;
+              border: none;
+              border-radius: 6px;
+              color: white;
+              font-size: 12px;
+              cursor: pointer;
+            "
+          >
+            일괄 승인
+          </button>
+          <button
+            style="
+              padding: 8px 16px;
+              background: #f59e0b;
+              border: none;
+              border-radius: 6px;
+              color: white;
+              font-size: 12px;
+              cursor: pointer;
+            "
+          >
+            승인 내역 다운로드
+          </button>
+          <button
+            style="
+              padding: 8px 16px;
+              background: #06b6d4;
+              border: none;
+              border-radius: 6px;
+              color: white;
+              font-size: 12px;
+              cursor: pointer;
+            "
+          >
+            승인 통계
+          </button>
+          <button
+            style="
+              padding: 8px 16px;
+              background: #8b5cf6;
+              border: none;
+              border-radius: 6px;
+              color: white;
+              font-size: 12px;
+              cursor: pointer;
+            "
+          >
+            승인 정책 설정
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="header">
+  <h1 class="page-title">캠페인 관리</h1>
+  <p class="page-subtitle">제출된 캠페인을 검토하고 관리하세요</p>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card" data-status="all">
+    <div class="stat-number" id="total-count">6</div>
+    <div class="stat-label">전체</div>
+  </div>
+  <div class="stat-card" data-status="pending">
+    <div class="stat-number" id="pending-count" style="color: #f59e0b">3</div>
+    <div class="stat-label">승인대기</div>
+  </div>
+  <div class="stat-card" data-status="approved">
+    <div class="stat-number" id="approved-count" style="color: #10b981">2</div>
+    <div class="stat-label">승인완료</div>
+  </div>
+  <div class="stat-card" data-status="rejected">
+    <div class="stat-number" id="rejected-count" style="color: #ef4444">1</div>
+    <div class="stat-label">반려</div>
+  </div>
+</div>
+
+<div class="search-section">
+  <div class="search-controls">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="캠페인명 또는 고객사명 검색"
+      id="search-input"
+    />
+    <button class="search-btn" id="search-btn">검색</button>
+    <button class="reset-btn" id="reset-btn">초기화</button>
+    <button class="excel-download-btn" id="excel-btn">엑셀 다운로드</button>
+  </div>
+  <div class="notice-box">
+    캠페인 관리 내역을 엑셀 파일로 다운로드하여 관리할 수 있습니다.
+  </div>
+</div>
+
+<div class="payment-table-container">
+  <div class="table-header">
+    <h3>캠페인 관리 테이블</h3>
+    <div class="table-actions">
+      <div class="company-type-buttons">
+        <button class="company-btn active" data-type="all">전체</button>
+        <button class="company-btn" data-type="customer">고객사</button>
+        <button class="company-btn" data-type="agency">대행사</button>
+        <button class="company-btn" data-type="partner">파트너사</button>
+      </div>
+      <select id="period-filter" class="filter-select">
+        <option value="all">전체 기간</option>
+        <option value="today">오늘</option>
+        <option value="this-week">이번주</option>
+        <option value="this-month">이번달</option>
+        <option value="last-month">지난달</option>
+      </select>
+      <select id="status-filter" class="filter-select">
+        <option value="all">모든 상태</option>
+        <option value="pending">승인대기</option>
+        <option value="approved">승인완료</option>
+        <option value="rejected">반려</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="excel-table">
+    <table id="campaign-table">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제출일시</th>
+          <th>캠페인명</th>
+          <th>고객사</th>
+          <th>예산</th>
+          <th>유형</th>
+          <th>일정</th>
+          <th>상태</th>
+          <th>비고</th>
+        </tr>
+      </thead>
+      <tbody id="campaign-tbody">
+        <tr>
+          <td
+            colspan="9"
+            style="text-align: center; color: #64748b; padding: 16px"
+          >
+            데이터 불러오는 중...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
